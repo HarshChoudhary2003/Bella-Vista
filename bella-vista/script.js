@@ -288,32 +288,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ─── 16. GALLERY LIGHTBOX ──────────────────────────── */
+    /* ─── 16. GALLERY FILTER + LIGHTBOX ─────────────────── */
     const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const lbCap = document.getElementById('lightboxCaption');
-    const galleryData = Array.from(galleryItems).map(el => ({ src: el.dataset.src, caption: el.dataset.caption }));
+    const lightbox    = document.getElementById('lightbox');
+    const lbImg       = document.getElementById('lightboxImg');
+    const lbCap       = document.getElementById('lightboxCaption');
+    let visibleItems  = Array.from(galleryItems); // tracks filtered set
     let lbIdx = 0;
 
-    const openLB = idx => { lbIdx = idx; lbImg.src = galleryData[lbIdx].src; lbCap.textContent = galleryData[lbIdx].caption; lightbox && lightbox.classList.add('open'); document.body.style.overflow = 'hidden'; };
-    const closeLB = () => { lightbox && lightbox.classList.remove('open'); document.body.style.overflow = ''; };
+    /* Category Filter */
+    const gfBtns = document.querySelectorAll('.gf-btn');
+    gfBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            gfBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.gf;
+            galleryItems.forEach(item => {
+                const match = cat === 'all' || item.dataset.cat === cat;
+                if (match) {
+                    item.classList.remove('gf-hidden');
+                    item.style.animation = 'fadeIn 0.4s ease both';
+                } else {
+                    item.classList.add('gf-hidden');
+                }
+            });
+            // Rebuild visible set for lightbox nav
+            visibleItems = Array.from(galleryItems).filter(el => !el.classList.contains('gf-hidden'));
+        });
+    });
+
+    /* Lightbox */
+    const openLB = idx => {
+        lbIdx = idx;
+        const d = visibleItems[lbIdx]?.dataset;
+        if (!d) return;
+        lbImg.src = d.src; lbCap.textContent = d.caption;
+        lightbox?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    const closeLB = () => { lightbox?.classList.remove('open'); document.body.style.overflow = ''; };
     const navLB = dir => {
-        lbIdx = (lbIdx + dir + galleryData.length) % galleryData.length;
+        lbIdx = (lbIdx + dir + visibleItems.length) % visibleItems.length;
         lbImg.style.opacity = '0';
-        setTimeout(() => { lbImg.src = galleryData[lbIdx].src; lbCap.textContent = galleryData[lbIdx].caption; lbImg.style.opacity = '1'; }, 220);
+        setTimeout(() => {
+            const d = visibleItems[lbIdx]?.dataset;
+            if (d) { lbImg.src = d.src; lbCap.textContent = d.caption; }
+            lbImg.style.opacity = '1';
+        }, 220);
     };
 
-    galleryItems.forEach((el, i) => el.addEventListener('click', () => openLB(i)));
+    galleryItems.forEach((el, i) => el.addEventListener('click', () => {
+        // Find index in visible set
+        const vi = visibleItems.indexOf(el);
+        if (vi !== -1) openLB(vi);
+    }));
     document.getElementById('lightboxClose')?.addEventListener('click', closeLB);
-    document.getElementById('lightboxPrev')?.addEventListener('click', () => navLB(-1));
-    document.getElementById('lightboxNext')?.addEventListener('click', () => navLB(1));
+    document.getElementById('lightboxPrev')?.addEventListener('click',  () => navLB(-1));
+    document.getElementById('lightboxNext')?.addEventListener('click',  () => navLB(1));
     lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLB(); });
     document.addEventListener('keydown', e => {
         if (!lightbox?.classList.contains('open')) return;
-        if (e.key === 'Escape') closeLB();
-        if (e.key === 'ArrowLeft') navLB(-1);
-        if (e.key === 'ArrowRight') navLB(1);
+        if (e.key === 'Escape')      closeLB();
+        if (e.key === 'ArrowLeft')   navLB(-1);
+        if (e.key === 'ArrowRight')  navLB(1);
     });
 
     /* ─── 17. TESTIMONIALS SLIDER ───────────────────────── */

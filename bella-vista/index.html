@@ -394,15 +394,67 @@
       <div class="section-header reveal">
         <span class="section-eyebrow">Visual Story</span>
         <h2 class="section-title">La Galleria</h2>
-        <p class="section-subtitle">A glimpse into the art of Bella Vista</p>
+        <p class="section-subtitle">A glimpse into the art, soul, and flavours of Bella Vista</p>
       </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80" data-caption="The Main Dining Hall"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Dining Hall"><div class="gallery-overlay"><span>✦</span></div></div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" data-caption="Exquisite Plating"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Fine Dining Plate"><div class="gallery-overlay"><span>✦</span></div></div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80" data-caption="Artisan Pizza"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Pizza"><div class="gallery-overlay"><span>✦</span></div></div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=1200&q=80" data-caption="Private Dining Room"><img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=600&q=80" alt="Private Dining"><div class="gallery-overlay"><span>✦</span></div></div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1200&q=80" data-caption="Our Wine Cellar"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=600&q=80" alt="Wine Cellar"><div class="gallery-overlay"><span>✦</span></div></div>
-        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=1200&q=80" data-caption="Handcrafted Pasta"><img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80" alt="Fresh Pasta"><div class="gallery-overlay"><span>✦</span></div></div>
+      <!-- Gallery Filter -->
+      <div class="gallery-filters reveal" id="galleryFilters">
+        <button class="gf-btn active" data-gf="all">All</button>
+        <button class="gf-btn" data-gf="ambiance">Ambiance</button>
+        <button class="gf-btn" data-gf="dishes">Dishes</button>
+        <button class="gf-btn" data-gf="kitchen">Kitchen</button>
+      </div>
+      <div class="gallery-grid reveal" id="galleryGrid">
+        <!-- Ambiance -->
+        <div class="gallery-item gi-wide" data-cat="ambiance" data-src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&q=80" data-caption="The Main Dining Hall — Dressed for the Evening">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=75" alt="Main Dining Hall" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Dining Hall</span></div>
+        </div>
+        <div class="gallery-item" data-cat="ambiance" data-src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=1200&q=80" data-caption="Private Dining — An Intimate Evening">
+          <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=600&q=75" alt="Private Dining" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Private Room</span></div>
+        </div>
+        <div class="gallery-item" data-cat="ambiance" data-src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=1200&q=80" data-caption="Golden Hour — The Terrace at Sunset">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=75" alt="Terrace Sunset" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">The Terrace</span></div>
+        </div>
+        <div class="gallery-item" data-cat="ambiance" data-src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80" data-caption="The Bar — Where Every Evening Begins">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=75" alt="The Bar" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">The Bar</span></div>
+        </div>
+        <!-- Dishes -->
+        <div class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" data-caption="Exquisite Plating — A Work of Art">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" alt="Fine Dining Plate" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Fine Plating</span></div>
+        </div>
+        <div class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80" data-caption="Artisan Pizza — Wood-Fired Perfection">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=75" alt="Pizza" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Artisan Pizza</span></div>
+        </div>
+        <div class="gallery-item gi-tall" data-cat="dishes" data-src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=1200&q=80" data-caption="Handcrafted Pasta — Rolled Fresh Daily">
+          <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=75" alt="Fresh Pasta" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Fresh Pasta</span></div>
+        </div>
+        <div class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1200&q=80" data-caption="Branzino al Forno — Sea Bass Roasted to Perfection">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=75" alt="Sea Bass" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Branzino</span></div>
+        </div>
+        <div class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=1200&q=80" data-caption="Tiramisù della Casa — Our Iconic Dessert">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=75" alt="Tiramisu" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Tiramisù</span></div>
+        </div>
+        <!-- Kitchen -->
+        <div class="gallery-item" data-cat="kitchen" data-src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1200&q=80" data-caption="Our Wine Cellar — 500+ Italian Labels">
+          <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=600&q=75" alt="Wine Cellar" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Wine Cellar</span></div>
+        </div>
+        <div class="gallery-item" data-cat="kitchen" data-src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=1200&q=80" data-caption="Behind the Pass — Chef at Work">
+          <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=75" alt="Chef at Work" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">Our Chefs</span></div>
+        </div>
+        <div class="gallery-item gi-wide" data-cat="kitchen" data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=80" data-caption="The Kitchen — Where the Magic Happens">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=75" alt="Kitchen" loading="lazy">
+          <div class="gallery-overlay"><span class="go-icon">✦</span><span class="go-label">The Kitchen</span></div>
+        </div>
       </div>
     </div>
   </section>
