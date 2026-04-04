@@ -3,210 +3,561 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bella Vista - A beautiful Authentic Italian Restaurant.">
-    <title>Bella Vista</title>
+    <meta name="description" content="Bella Vista - A world-class premium authentic Italian restaurant experience in the heart of the city.">
+    <meta property="og:title" content="Bella Vista | Authentic Italian Cuisine">
+    <meta property="og:description" content="Exquisite Italian dining crafted with passion and heritage.">
+    <title>Bella Vista | Authentic Italian Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                   <h1>Bella Vista</h1>
-                   <span class="tagline">Authentic Italian Cuisine</span>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <svg class="plate-spin" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="36" stroke="#ca8a04" stroke-width="2" stroke-dasharray="8 4" />
+                <circle cx="40" cy="40" r="22" stroke="rgba(202,138,4,0.4)" stroke-width="1.5" />
+            </svg>
+            <p class="preloader-text">Bella Vista</p>
+        </div>
+    </div>
+
+    <!-- ANIMATED CANVAS BACKGROUND -->
+    <canvas id="particleCanvas"></canvas>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- HEADER / NAV -->
+    <header class="header glass-nav" id="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <div class="logo-text">
+                    <h1>Bella Vista</h1>
+                    <span class="tagline">Authentic Italian Cuisine</span>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#Home">Home</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#stats" class="nav-link">Legacy</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#chefs" class="nav-link">Chefs</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#events" class="nav-link">Events</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Reserve</a></li>
                 </ul>
-            </nav>       
-         </div>
-         </header>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
 
-         <main>
-            <section id="home" class="hero">
-                <div class="hero-content">
-                    <h2>Welcome to Bella Vista</h2>
-                    <p>Experience the taste of Italy in the heart of the city.</p>
+    <main>
+        <!-- ====== HERO ====== -->
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="badge">Est. 1987 · Since Over 35 Years</span>
+                    <h2>A Symphony of<br><span class="highlight">Italian Flavors</span></h2>
+                    <p>Handcrafted dishes, imported ingredients, and an atmosphere that transports you to the streets of Florence. Every meal is a story.</p>
                     <div class="hero-buttons">
-                        <a href="../menu.html" class="btn btn-primary">View Menu</a>
-                        <a href="../contact.html" class="btn btn-secondary">Make a Reservation</a>
-
+                        <a href="#menu" class="btn btn-primary-glass">
+                            <span>Explore Menu</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#contact" class="btn btn-glass">
+                            <span>Reserve a Table</span>
+                        </a>
+                    </div>
+                    <div class="hero-awards">
+                        <div class="award-item"><span class="award-icon">⭐</span><span>Michelin Star</span></div>
+                        <div class="award-divider"></div>
+                        <div class="award-item"><span class="award-icon">🏆</span><span>Best Italian 2024</span></div>
+                        <div class="award-divider"></div>
+                        <div class="award-item"><span class="award-icon">🍷</span><span>Wine Spectator Award</span></div>
                     </div>
                 </div>
-                </section>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"><div class="wheel"></div></div>
+                <span>Scroll</span>
+            </div>
+        </section>
 
-
-                <section id="menu" class="menu">
-                    <div class="container">
-                        <h2 class="section-title">Our Menu</h2>
-                        <p class="section-subtitle"></p>
-                    <div class="menu-categories">
-                        <div class="menu-category">
-                            <h3>Appetizers</h3>
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="menu-item-info">
-                                        <h4>Bruschetta</h4>
-                                        <p>Grilled bread topped with fresh tomatoes, garlic, basil, and olive oil.</p>
-
-                                </div>
-                                
-                                <span class="price">$12</span>
-                                </div>
-                                <div class="menu-item">
-                                  <div class="menu-item-info">
-                                        <h4>Antipasto Platter</h4>
-                                        <p>A selection of cured meats, cheeses, and marinated vegetables.</p>
-
-                                </div>
-                                <span class="price">$18</span>
-                            </div>
-                            
-                           
-                        </div>
-                    </div>    
-                    
+        <!-- ====== STATS ====== -->
+        <section id="stats" class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card glass-card reveal" data-delay="0">
+                        <div class="stat-number" data-count="35">0</div>
+                        <div class="stat-suffix">+</div>
+                        <p class="stat-label">Years of Heritage</p>
                     </div>
-
-                </section>
-
-                <section id="about" class="about">
-                    <div class="container">
-                        <h2 class="section-title">About Bella Vista</h2>
-                        <div class="about-content">
-                            <div class="about-text">
-                                <h3>Our Story</h3>
-                                <p>Bella Vista is a family-owned Italian restaurant located in the heart of the city. Our passion for authentic Italian cuisine is reflected in every dish we serve. From homemade pasta to wood-fired pizzas, we use only the freshest ingredients to create a memorable dining experience.</p>
-                                <p>Every dish is a labor of love, crafted with care and attention to detail. We invite you to join us and experience the true flavors of Italy.</p>
-                            </div>
-                                                    <div class="about-image">
-                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/24/51/c2/a9/sunset-views-from-the.jpg" alt="Bella Vista Restaurant">
-                        </div>
-
+                    <div class="stat-card glass-card reveal" data-delay="100">
+                        <div class="stat-number" data-count="180">0</div>
+                        <div class="stat-suffix">+</div>
+                        <p class="stat-label">Signature Dishes</p>
                     </div>
-                </section>
-                <section id="contact" class="contact">
+                    <div class="stat-card glass-card reveal" data-delay="200">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="stat-suffix">K</div>
+                        <p class="stat-label">Happy Guests Monthly</p>
+                    </div>
+                    <div class="stat-card glass-card reveal" data-delay="300">
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-suffix">%</div>
+                        <p class="stat-label">Guest Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="container">
-                        <h2 class="section-title">Contact Us</h2>
-                        <div class="contact-content">
-                            <div class="contact-info">
-                                <h3>Get in Touch</h3>
-                                <div class="contact-item">
-                                <strong>Address:</strong>
-                                <p> 123 Main St, Cityville, NY 10001</p>
-                                </div>
-                                <div class="contact-item">
-                                <strong>Phone:</strong>
-                                <p> (123) 456-7890</p>
-                                </div>
-                                <div class="contact-item">
-                                <strong>Email:</strong>
-                                <p> info@bellavista.com</p>
-                                </div>
-                                
-                               
-
+        <!-- ====== MENU ====== -->
+        <section id="menu" class="menu-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">La Nostra Carta</span>
+                    <h2 class="section-title">Our Curated Menu</h2>
+                    <p class="section-subtitle">Each dish is a tribute to Italian tradition, reimagined for the modern palate</p>
+                </div>
+                <div class="menu-tabs reveal" id="menuTabs">
+                    <button class="tab-btn active" data-tab="antipasti">Antipasti</button>
+                    <button class="tab-btn" data-tab="pasta">Pasta &amp; Risotto</button>
+                    <button class="tab-btn" data-tab="secondi">Secondi</button>
+                    <button class="tab-btn" data-tab="desserts">Dolci</button>
+                </div>
+                <div class="menu-panel active" id="tab-antipasti">
+                    <div class="menu-items">
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-badge">Chef's Pick</div>
+                            <div class="menu-item-visual">🍅</div>
+                            <div class="menu-item-info"><h4>Bruschetta al Pomodoro</h4><p>Grilled rustic bread, vine-ripened tomatoes, garlic, fresh basil & extra virgin olive oil.</p></div>
+                            <span class="price">$14</span>
                         </div>
-                        <div class="contact-form">
-                            <h3>Make a Reservation</h3>
-                            <form>
-                                <div class="form-group">
-                                    <label for="name"> Full Name:</label>
-                                    <input type="text" id="name" name="name" required>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🧀</div>
+                            <div class="menu-item-info"><h4>Tagliere di Salumi</h4><p>Imported cured meats, artisanal cheeses, marinated olives, and grissini.</p></div>
+                            <span class="price">$24</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🦑</div>
+                            <div class="menu-item-info"><h4>Calamari Fritti</h4><p>Lightly dusted and fried calamari with house-made arrabbiata dipping sauce.</p></div>
+                            <span class="price">$18</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-badge">New</div>
+                            <div class="menu-item-visual">🫙</div>
+                            <div class="menu-item-info"><h4>Burrata e Prosciutto</h4><p>Creamy imported burrata, San Daniele prosciutto, and a honey-truffle drizzle.</p></div>
+                            <span class="price">$22</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-panel" id="tab-pasta">
+                    <div class="menu-items">
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-badge">Signature</div>
+                            <div class="menu-item-visual">🍝</div>
+                            <div class="menu-item-info"><h4>Linguine allo Scoglio</h4><p>Mussels, clams, shrimp, and calamari in a white wine and pomodoro sauce.</p></div>
+                            <span class="price">$32</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🍄</div>
+                            <div class="menu-item-info"><h4>Pappardelle ai Funghi</h4><p>Hand-rolled pappardelle with wild porcini, truffle butter, and aged Parmigiano.</p></div>
+                            <span class="price">$28</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🥘</div>
+                            <div class="menu-item-info"><h4>Risotto al Tartufo Nero</h4><p>Carnaroli rice, black truffle shavings, Parmigiano-Reggiano, and white wine.</p></div>
+                            <span class="price">$36</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-panel" id="tab-secondi">
+                    <div class="menu-items">
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-badge">Premium</div>
+                            <div class="menu-item-visual">🥩</div>
+                            <div class="menu-item-info"><h4>Filetto di Manzo al Barolo</h4><p>Prime beef tenderloin, Barolo wine reduction, truffle mashed potatoes.</p></div>
+                            <span class="price">$52</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🐟</div>
+                            <div class="menu-item-info"><h4>Branzino al Forno</h4><p>Oven-roasted sea bass with lemon, capers, olives, and cherry tomatoes.</p></div>
+                            <span class="price">$44</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-panel" id="tab-desserts">
+                    <div class="menu-items">
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-badge">Signature</div>
+                            <div class="menu-item-visual">🍮</div>
+                            <div class="menu-item-info"><h4>Tiramisù della Casa</h4><p>Our legendary recipe — espresso-soaked ladyfingers, mascarpone, and dark cocoa.</p></div>
+                            <span class="price">$14</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🍨</div>
+                            <div class="menu-item-info"><h4>Gelato Artigianale</h4><p>Three scoops of homemade seasonal gelato with pistachio crumble.</p></div>
+                            <span class="price">$10</span>
+                        </div>
+                        <div class="menu-item glass-card tilt-card reveal">
+                            <div class="menu-item-visual">🍰</div>
+                            <div class="menu-item-info"><h4>Panna Cotta al Limone</h4><p>Light set cream with Amalfi lemon curd and macerated strawberries.</p></div>
+                            <span class="price">$12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CHEFS ====== -->
+        <section id="chefs" class="chefs-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">The Artisans</span>
+                    <h2 class="section-title">Meet Our Maestros</h2>
+                    <p class="section-subtitle">World-class culinary artists dedicated to the craft of Italian cuisine</p>
+                </div>
+                <div class="chefs-grid">
+                    <div class="chef-card glass-card tilt-card reveal" data-delay="0">
+                        <div class="chef-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80" alt="Chef Marco Rossi">
+                            <div class="chef-social">
+                                <a href="#">IG</a>
+                            </div>
+                        </div>
+                        <div class="chef-info">
+                            <h3>Marco Rossi</h3>
+                            <span class="chef-title">Executive Chef</span>
+                            <p>A Florentine native with 25 years of culinary mastery across 3-Michelin starred kitchens in Italy and France.</p>
+                            <div class="chef-specialty"><span>Specialty:</span> Handmade Pasta</div>
+                        </div>
+                    </div>
+                    <div class="chef-card glass-card tilt-card reveal" data-delay="150">
+                        <div class="chef-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=400&q=80" alt="Chef Sofia Conti">
+                            <div class="chef-social"><a href="#">IG</a></div>
+                        </div>
+                        <div class="chef-info">
+                            <h3>Sofia Conti</h3>
+                            <span class="chef-title">Pastry Chef</span>
+                            <p>Trained at the finest patisseries of Milan, Sofia brings artistry and science together in every dessert.</p>
+                            <div class="chef-specialty"><span>Specialty:</span> Italian Dolci</div>
+                        </div>
+                    </div>
+                    <div class="chef-card glass-card tilt-card reveal" data-delay="300">
+                        <div class="chef-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&q=80" alt="Chef Luca Moretti">
+                            <div class="chef-social"><a href="#">IG</a></div>
+                        </div>
+                        <div class="chef-info">
+                            <h3>Luca Moretti</h3>
+                            <span class="chef-title">Head Sommelier</span>
+                            <p>A certified master sommelier with an intimate knowledge of Italy's finest wine regions and rare vintages.</p>
+                            <div class="chef-specialty"><span>Specialty:</span> Italian Wines</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== GALLERY ====== -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Visual Story</span>
+                    <h2 class="section-title">La Galleria</h2>
+                    <p class="section-subtitle">A glimpse into the art of Bella Vista</p>
+                </div>
+                <div class="gallery-grid reveal">
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80" data-caption="The Main Dining Hall">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Restaurant Dining Hall">
+                        <div class="gallery-overlay"><span>✦</span></div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" data-caption="Exquisite Plating">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Fine Dining Plate">
+                        <div class="gallery-overlay"><span>✦</span></div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80" data-caption="Artisan Pizza">
+                        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Artisan Pizza">
+                        <div class="gallery-overlay"><span>✦</span></div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=1200&q=80" data-caption="Private Dining Room">
+                        <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=600&q=80" alt="Private Dining">
+                        <div class="gallery-overlay"><span>✦</span></div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1200&q=80" data-caption="Our Wine Cellar">
+                        <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=600&q=80" alt="Wine Cellar">
+                        <div class="gallery-overlay"><span>✦</span></div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=1200&q=80" data-caption="Handcrafted Pasta">
+                        <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80" alt="Fresh Pasta">
+                        <div class="gallery-overlay"><span>✦</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX -->
+        <div id="lightbox" class="lightbox">
+            <button class="lightbox-close" id="lightboxClose">✕</button>
+            <button class="lightbox-nav prev" id="lightboxPrev">❮</button>
+            <div class="lightbox-inner">
+                <img id="lightboxImg" src="" alt="Gallery Image">
+                <p id="lightboxCaption"></p>
+            </div>
+            <button class="lightbox-nav next" id="lightboxNext">❯</button>
+        </div>
+
+        <!-- ====== EVENTS ====== -->
+        <section id="events" class="events-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Upcoming</span>
+                    <h2 class="section-title">Special Events</h2>
+                    <p class="section-subtitle">Immersive evenings crafted for the discerning palate</p>
+                </div>
+                <div class="events-grid">
+                    <div class="event-card glass-card reveal" data-delay="0">
+                        <div class="event-date-badge"><span class="day">12</span><span class="month">APR</span></div>
+                        <div class="event-info">
+                            <span class="event-category">Wine Pairing</span>
+                            <h3>Barolo Masterclass</h3>
+                            <p>An exclusive evening with our Head Sommelier Luca Moretti — explore 6 rare Barolo vintages paired with our signature dishes.</p>
+                            <div class="event-meta">
+                                <span>🕖 7:00 PM</span>
+                                <span>👤 16 Seats</span>
+                                <span>💰 $120 / person</span>
+                            </div>
+                            <a href="#contact" class="btn btn-glass btn-sm">Reserve Seat</a>
+                        </div>
+                    </div>
+                    <div class="event-card glass-card reveal" data-delay="150">
+                        <div class="event-date-badge"><span class="day">19</span><span class="month">APR</span></div>
+                        <div class="event-info">
+                            <span class="event-category">Culinary Workshop</span>
+                            <h3>Fresh Pasta Lab</h3>
+                            <p>Join Chef Marco Rossi for a hands-on pasta-making workshop. Learn the secrets of authentic sfoglia and fillings.</p>
+                            <div class="event-meta">
+                                <span>🕙 10:00 AM</span>
+                                <span>👤 12 Seats</span>
+                                <span>💰 $95 / person</span>
+                            </div>
+                            <a href="#contact" class="btn btn-glass btn-sm">Reserve Seat</a>
+                        </div>
+                    </div>
+                    <div class="event-card glass-card reveal" data-delay="300">
+                        <div class="event-date-badge"><span class="day">30</span><span class="month">APR</span></div>
+                        <div class="event-info">
+                            <span class="event-category">Special Dinner</span>
+                            <h3>White Truffle Night</h3>
+                            <p>A once-a-year exclusive 7-course tasting menu celebrating the prized white truffle from Alba, Piedmont.</p>
+                            <div class="event-meta">
+                                <span>🕖 7:30 PM</span>
+                                <span>👤 24 Seats</span>
+                                <span>💰 $240 / person</span>
+                            </div>
+                            <a href="#contact" class="btn btn-glass btn-sm">Reserve Seat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TESTIMONIALS ====== -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Guest Reviews</span>
+                    <h2 class="section-title">What They Say</h2>
+                </div>
+                <div class="testimonials-slider reveal" id="slider">
+                    <div class="testimonials-track" id="sliderTrack">
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Bella Vista is not just a restaurant — it's a transcendent culinary journey. The Linguine allo Scoglio was the best pasta I've ever had outside of Rome."</p>
+                            <div class="reviewer"><div class="reviewer-avatar">JM</div><div><strong>James Morrison</strong><span>Food Critic, Saveur Magazine</span></div></div>
+                        </div>
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"The atmosphere is magical — like being wrapped in a warm Italian sunset. Chef Marco's Tiramisù literally made our table gasp. We will be back every year."</p>
+                            <div class="reviewer"><div class="reviewer-avatar">SP</div><div><strong>Sarah & Peter Chen</strong><span>Anniversary Dinner Guests</span></div></div>
+                        </div>
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"The White Truffle Night was unlike anything I've experienced. Flawless service, immaculate plating, and flavors that will haunt me beautifully forever."</p>
+                            <div class="reviewer"><div class="reviewer-avatar">EL</div><div><strong>Elena Lagrange</strong><span>Michelin Guide Inspector</span></div></div>
+                        </div>
+                        <div class="testimonial-card glass-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"The Barolo Masterclass with Luca was educational, entertaining, and utterly decadent. Worth every penny for any serious wine lover."</p>
+                            <div class="reviewer"><div class="reviewer-avatar">DR</div><div><strong>David Rowe</strong><span>Wine Enthusiast</span></div></div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="sliderPrev">❮</button>
+                        <div class="slider-dots" id="sliderDots"></div>
+                        <button class="slider-btn" id="sliderNext">❯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== ABOUT ====== -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content glass-card reveal">
+                    <div class="about-text">
+                        <span class="section-eyebrow">Our Heritage</span>
+                        <h2 class="section-title" style="text-align:left; color:white; background:none; -webkit-text-fill-color:initial;">The Bella Vista Story</h2>
+                        <p>Founded in 1987 by the Rossi family, Bella Vista has been a beacon of authentic Italian dining for over three decades. Our story began in a small kitchen in Florence, where Nonna Giulia's handwritten recipes were first put to the test.</p>
+                        <p>Today, under the guidance of Executive Chef Marco Rossi, we carry that same passion into every dish — honouring tradition while embracing the finest modern techniques.</p>
+                        <ul class="features-list">
+                            <li><span>✓</span> Ingredients imported weekly from Italy</li>
+                            <li><span>✓</span> All pasta and bread made fresh daily</li>
+                            <li><span>✓</span> Michelin-recognised culinary team</li>
+                            <li><span>✓</span> 500+ label Italian wine cellar</li>
+                        </ul>
+                    </div>
+                    <div class="about-image"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" alt="Bella Vista Interior"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CONTACT / RESERVATION ====== -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Join Us</span>
+                    <h2 class="section-title">Reserve Your Table</h2>
+                    <p class="section-subtitle">Secure your place at the most coveted table in the city</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info glass-card reveal">
+                        <h3>Find Us</h3>
+                        <div class="contact-items">
+                            <div class="contact-item"><div class="icon">📍</div><div><strong>Address</strong><p>123 Via Veneto, Cityville, NY 10001</p></div></div>
+                            <div class="contact-item"><div class="icon">📞</div><div><strong>Reservations</strong><p>+1 (555) 123-4567</p></div></div>
+                            <div class="contact-item"><div class="icon">✉️</div><div><strong>Email</strong><p>reservations@bellavista.com</p></div></div>
+                        </div>
+                        <div class="hours glass-card-inner">
+                            <strong>Opening Hours</strong>
+                            <p>Mon – Fri: 11:30 AM – 10:30 PM</p>
+                            <p>Saturday: 12:00 PM – 11:30 PM</p>
+                            <p>Sunday: 1:00 PM – 9:30 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-form glass-card reveal" style="transition-delay:0.15s">
+                        <h3>Reservation Request</h3>
+                        <form id="reservationForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group input-glass">
+                                    <input type="text" id="res-name" required placeholder=" ">
+                                    <label for="res-name">Full Name</label>
                                 </div>
-                                 <div class="form-group">
-                                    <label for="email"> Email:</label>
-                                    <input type="email" id="email" name="email" required>
+                                <div class="form-group input-glass">
+                                    <input type="email" id="res-email" required placeholder=" ">
+                                    <label for="res-email">Email Address</label>
                                 </div>
-                                 <div class="form-group">
-                                    <label for="phone"> Phone:</label>
-                                    <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group input-glass">
+                                    <input type="date" id="res-date" required>
                                 </div>
-                                 <div class="form-group">
-                                    <label for="reservation-date"> Reservation Date:</label>
-                                    <input type="date" id="reservation-date" name="reservation-date" required>
-                                </div>
-                                 <div class="form-group">
-                                    <label for="time"> Time:</label>
-                                    <select id="time" name="time" required>
-                                    <option value="">Select Time</option>
-                                    <option value="18:00">6:00 PM</option>
-                                    <option value="19:00">7:00 PM</option>
-                                    <option value="20:00">8:00 PM</option>
-                                    <option value="21:00">9:00 PM</option>
+                                <div class="form-group input-glass">
+                                    <select id="res-time" required>
+                                        <option value="" disabled selected>Select Time</option>
+                                        <option>6:00 PM</option><option>7:00 PM</option>
+                                        <option>8:00 PM</option><option>9:00 PM</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="number-of-guests"> Number of Guests:</label>
-                                    <select id="number-of-guests" name="number-of-guests" required>
-                                     <option value="">Select Guests</option>
-                                    <option value="1">1 Guest</option>
-                                    <option value="2">2 Guests</option>
-                                    <option value="3">3 Guests</option>
-                                    <option value="4">4 Guests</option>
-                                    <option value="5">5 Guests</option>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group input-glass">
+                                    <select id="res-guests" required>
+                                        <option value="" disabled selected>Number of Guests</option>
+                                        <option>1</option><option>2</option><option>3</option>
+                                        <option>4</option><option>5</option><option>6+</option>
                                     </select>
                                 </div>
-                                   <div class="form-group">
-                                    <label for="message"> Special Requests:</label>
-                                    <textarea id="message" name="message" rows="4" placeholder="Enter your special requests here..." required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit Reservation</button>
-
-                            </form>
-                        </div>
-                        </div>
-                </section>
-                </main>
-
-                <footer class="footer">
-                    <div class="container">
-                        <div class="footer-content">
-                            <div class="footer-section">
-                                <h3>Bella Vista</h3>
-                                <p>Authentic Italian Cuisine in the heart of the city. </p>
-                                <p>Experience the taste of Italy with our traditional recipes and fresh ingredients.</p>
-                            </div>
-
-                            <div class="footer-section">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href="#home">Home</a></li>
-                                    <li><a href="#menu">Menu</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="#contact">Contact</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="footer-section">
-                                <h4>Opening Hours</h4>
-                                <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
-                                <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
-                                <p>Sunday: 12:00 PM - 9:00 PM</p>
-                            </div>
-
-                            <div class="footer-section">
-                                <h4>Follow Us</h4>
-                                <div class="social-links">
-                                    <a href="#" class="social-link">Facebook</a>
-                                    <a href="#" class="social-link">Instagram</a>
-                                    <a href="#" class="social-link">Twitter</a>
+                                <div class="form-group input-glass">
+                                    <select id="res-occasion" required>
+                                        <option value="" disabled selected>Occasion (Optional)</option>
+                                        <option>Anniversary</option><option>Birthday</option>
+                                        <option>Business Dinner</option><option>Proposal</option>
+                                        <option>Other</option>
+                                    </select>
                                 </div>
                             </div>
-
-                           
+                            <div class="form-group input-glass">
+                                <textarea id="res-message" rows="3" placeholder=" "></textarea>
+                                <label for="res-message">Special Requests</label>
                             </div>
-                             <div class="footer-bottom">
-                                <p>&copy; 2025 Bella Vista Restaurant. All rights reserved.</p>
-                        </div>
+                            <button type="submit" class="btn btn-primary-glass btn-full" id="submitBtn">
+                                <span id="btnText">Confirm Reservation</span>
+                                <span id="btnLoader" class="btn-loader" style="display:none"></span>
+                            </button>
+                        </form>
                     </div>
-                </footer>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
 
-            
+    <!-- FOOTER -->
+    <footer class="footer glass-nav">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Bella Vista</h3>
+                    <p>Redefining Italian dining through passion, heritage, and modern elegance since 1987.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#chefs">Our Chefs</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#contact">Reserve</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h4>Hours</h4>
+                    <p>Mon – Fri: 11:30 AM – 10:30 PM</p>
+                    <p>Sat – Sun: 12:00 PM – 11:30 PM</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Bella Vista Restaurant. All rights reserved.</p>
+                <p>Crafted with passion in NYC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="btt-btn" id="bttBtn" title="Back to top">▲</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
