@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- HERO BANNER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,14,20&height=220&section=header&text=Bella%20Vista&fontSize=72&fontColor=fff&fontAlignY=38&desc=Authentic%20Italian%20Cuisine%20%E2%80%B7%20Premium%20Glassmorphic%20Web%20Experience&descAlignY=60&descSize=18&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,14,20&height=220&section=header&text=Bella%20Vista%20v3.0&fontSize=72&fontColor=fff&fontAlignY=38&desc=The%20Visionary%20Upgrade%20%E2%80%B7%20Most%20Advanced%20Italian%20Web%20Experience&descAlignY=60&descSize=18&animation=fadeIn" width="100%"/>
 
 <br/>
 
@@ -13,9 +13,9 @@
 
 <br/>
 
-> *Bella Vista* is a **production-ready**, **zero-dependency** restaurant website  
-> engineered with a bleeding-edge **glassmorphic design system** — pure HTML, CSS & JavaScript.  
-> Animating. Breathing. Alive.
+> *Bella Vista v3.0* is a **hyper-advanced**, **production-ready**, and **visually cinematic** restaurant application.  
+> Engineered with a high-end **glassmorphic design system** and **23 modular JavaScript engines**.  
+> Pure. Performance-driven. Masterpiece.
 
 <br/>
 
@@ -23,240 +23,154 @@
 
 ---
 
-## ✦ Preview
+## ✦ Evolutionary Preview (v3.0)
 
 <div align="center">
 
-| 🏠 Hero | 📊 Stats | 🍽️ Menu |
+| 🖱️ Advanced Cursor | 📊 Visionary Stats | 🍽️ Smart Menu |
 |:---:|:---:|:---:|
-| Animated particles, floating glass card, shimmer text | Live counter animations, glass stat tiles | Tabbed menu system with 3D tilt cards |
+| Lag-ring following dot cursor with gold glow | Live ease-out counters with stagger reveal | Tabs + Dietary Filters (Veg/Vegan/GF) |
 
-| 👨‍🍳 Chefs | 🖼️ Gallery | 📅 Events |
+| 🍷 Wine Sommelier | 🖼️ Infinite Gallery | 📅 Event VIP |
 |:---:|:---:|:---:|
-| Interactive chef cards with tilt physics | Masonry grid + fullscreen lightbox | Upcoming events with date badges |
+| Interactive pairing with animated metrics | Masonry grid + category-aware lightbox | Date-badged cards with reservation CTA |
 
-| 💬 Reviews | 📬 Reservation | 🌑 Theme |
+| 💬 Testimonials | 📬 Confetti Booking | 🌓 Localized State |
 |:---:|:---:|:---:|
-| Auto-sliding testimonials with swipe support | Floating label inputs with validation | Deep navy + gold glassmorphism dark mode |
+| Swipeable glass cards with auto-scroll | Canvas confetti burst on confirmation | Live Open/Closed status + Favorites Drawer |
 
 </div>
 
 ---
 
-## 🚀 Feature Matrix
+## 🚀 The Feature Universe
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│  BELLA VISTA · FEATURE MATRIX                                           │
-├────────────────────────────┬────────────────────────────────────────────┤
-│  VISUAL DESIGN             │  INTERACTIVE MODULES                       │
-│  ✦ Glassmorphism System    │  ✦ Particle Canvas w/ Line Connections    │
-│  ✦ Animated Blob BG        │  ✦ Animated Stats Counter (easeOutCubic)  │
-│  ✦ Gold Shimmer Typography │  ✦ 3D Tilt Effect with Mouse Shine        │
-│  ✦ Playfair + Outfit Fonts │  ✦ Tabbed Menu System (4 categories)      │
-│  ✦ CSS Variable Tokens     │  ✦ Gallery Masonry + Lightbox             │
-│                            │  ✦ Testimonials Slider (Auto + Swipe)      │
-│  ANIMATIONS                │  ✦ Reservation Form with Toast             │
-│  ✦ Preloader (SVG Spin)    │  ✦ Mobile Navigation (Animated Hamburger) │
-│  ✦ Scroll Reveal (IO API)  │  ✦ Keyboard Lightbox Navigation           │
-│  ✦ Badge Pulse Glow        │  ✦ Active Nav Link Tracking               │
-│  ✦ Hero Scroll Indicator   │  ✦ Back-to-Top with Fade                  │
-│  ✦ CSS Keyframe Rich       │                                            │
-└────────────────────────────┴────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  BELLA VISTA · VISIONARY UPGRADE (v3.0)                                      │
+├────────────────────────────┬─────────────────────────────────────────────────┤
+│  ELITE VISUALS             │  INTERACTIVE CAPABILITIES                       │
+│  ✦ Glassmorphism v2 (HSLA) │  ✦ Particle Canvas Connect Network              │
+│  ✦ Dynamic Blobs (3 Layer) │  ✦ Advanced Favourites System (Local Storage)   │
+│  ✦ Gold Cursor lag-ring    │  ✦ Dietary Filter System (Veg/Vegan/GF)         │
+│  ✦ Hero Parallax Engine    │  ✦ Interactive Wine Pairing (Bar Chart metrics) │
+│  ✦ Shimmer Typography v2   │  ✦ Canvas Confetti Confirmation                 │
+│                            │                                                 │
+│  SMART MODULES             │  UX & PERFORMANCE                               │
+│  ✦ Schedule-Aware Status   │  ✦ Scroll Progress Bar (Gold Tint)              │
+│  ✦ Infinite Specials Marquee│  ✦ Section Dot Navigator (Scroll Sync)         │
+│  ✦ Animated Stats Counters │  ✦ Magnetic Button Physics                      │
+│  ✦ 3D Card Tilt + Shine    │  ✦ Newsletter Modal (Timed + Dismissible)       │
+│  ✦ Masonry Gallery Filter  │  ✦ 100% Zero-Dependency (Vanilla JS/CSS)        │
+└────────────────────────────┴─────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🎨 Design System
+## 🎨 Design DNA
 
-### Color Palette
+### Color Tokens
 
 <div align="center">
 
-| Token | Value | Usage |
-|:------|:------|:------|
-| `--bg` | `#020617` | Page background |
-| `--surface` | `rgba(255,255,255,0.04)` | Glass card fill |
-| `--border` | `rgba(255,255,255,0.08)` | Glass card border |
-| `--accent` | `#ca8a04` | Gold primary accent |
-| `--accent-light` | `#fde047` | Gold shimmer highlight |
-| `--text-1` | `#f8fafc` | Primary text |
-| `--text-2` | `#94a3b8` | Secondary text |
+| Token | HSL-derived Hex | Application |
+|:------|:----------------|:------------|
+| `--bg` | `#020617` | Deep Space Background |
+| `--surface` | `rgba(255,255,255,0.04)` | Glass Card Surface |
+| `--accent` | `#ca8a04` | Venetian Gold |
+| `--accent-light` | `#fde047` | Florentine Shimmer |
+| `--text-1` | `#f8fafc` | Pure Alpine White |
+| `--status-open`| `#22c55e` | Live Emerald Glow |
 
 </div>
 
-### Typography
-
-```
-Headings   →  Playfair Display  (Italic Serif — Elegance)
-Body       →  Outfit            (Variable Sans — Modern Clarity)
-```
-
-### Glassmorphism Formula
+### Glassmorphism v3.0 Formula
 
 ```css
-.glass-card {
+.glass-vision-card {
   background:       rgba(255,255,255,0.04);
-  backdrop-filter:  blur(20px);
+  backdrop-filter:  blur(24px) saturate(180%);
   border:           1px solid rgba(255,255,255,0.08);
-  box-shadow:       0 8px 32px rgba(0,0,0,0.4);
-  border-radius:    20px;
+  box-shadow:       0 20px 50px rgba(0,0,0,0.5);
+  border-radius:    24px;
+  transition:       all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 ```
 
 ---
 
-## 🏗️ Architecture
+## ⚙️ The 23 JS Modules
+
+| # | Engine | Capability |
+|---|--------|------------|
+| 1 | **Cursor Dot** | Coordinates tracking for the primary gold dot |
+| 2 | **Cursor Ring** | Physics-based lag follower for the outer ring |
+| 3 | **Scroll Progress** | Window-depth calculator for the top progress bar |
+| 4 | **Preloader** | SVG dash-array spinning plate manager |
+| 5 | **Particle Physics** | Bounding-box particle network with line distance checks |
+| 6 | **Hero Parallax** | Scroll-depth multiplier for the background hero layer |
+| 7 | **Navbar Engine** | Scrolled-state class toggler & padding injector |
+| 8 | **Mobile Burger** | 3-line hamburger transform loop for mobile nav |
+| 9 | **Status Manager** | Week-day schedule calculator for "Open/Closed" badge |
+| 10| **Scroll Reveal** | IntersectionObserver logic with staggered fade-up |
+| 11| **Stats Counter** | Recursive frame loop for ease-out count animation |
+| 12| **Menu Tabs** | ID-based display switcher for categorized dishes |
+| 13| **Dietary Filter** | Attribute-based filtering (Veg/Vegan/GF) with fade animations |
+| 14| **3D Card Tilt** | Mouse-percent rotation matrix with perspective mapping |
+| 15| **Card Shine** | Radial-gradient mask tracking for 3D light effects |
+| 16| **Favourites** | CRUD logic for local storage favorites drawer |
+| 17| **Wine Pairer**| JSON-based data injector for interactive sommelier |
+| 18| **Wine Metrics**| Width-mapping for Bar, Tannin, and Acidity bars |
+| 19| **Masonry Logic** | Multi-column grid auto-rows & span variant manager |
+| 20| **Gallery Filter**| Category-based image culling (Ambiance/Dishes/Kitchen) |
+| 21| **Confetti Engine**| Canvas-based particle burst with gravity physics |
+| 22| **Magnetic Buttons**| Distance-based attractor for CTA elements |
+| 23| **Newsletter Modal**| Session-aware timed modal with dismissal logic |
+
+---
+
+## 🏗️ Technical Map
 
 ```
 bella-vista/
 │
-├── index.html          ← Single-page app structure (8 semantic sections)
-├── styles.css          ← 700+ line design system (vars, components, responsive)
-└── script.js           ← 13 self-contained JavaScript modules
+├── index.html          ← 15+ sections (Hero, Specials Ticker, Favourites...)
+├── styles.css          ← 1000+ lines (Glass System, 3D Physics, Marquee...)
+└── script.js           ← 23 Self-contained Engine Modules
 ```
 
-### Section Map
-
-```
-#home       →  Hero (Particle Canvas, Glass Card, Shimmer Title, Awards)
-#stats      →  Legacy Numbers (Animated Counters, 4 Stat Tiles)
-#menu       →  Menu (4 Tab Categories, 3D Tilt Cards, Badges)
-#chefs      →  Chef Showcase (Photos, Tilt Cards, Specialties)
-#gallery    →  Photo Gallery (Masonry Grid, Hover Overlay, Lightbox)
-#events     →  Upcoming Events (Date Badges, Meta Info, CTA)
-#reviews    →  Testimonials (Auto-Slider, Swipe, Dot Navigation)
-#about      →  Restaurant Story (Grid Layout, Features List)
-#contact    →  Reservation Form (Floating Labels, Toast Feedback)
-```
+### Advanced Sections
+- `#specials` → **Infinite Marquee** of today's hand-picked dishes.
+- `#favDrawer` → **Lateral Slide-in** to manage your marked preferences.
+- `#wine` → **Digital Sommelier** with wine metrics and food pairing.
+- `#gallery` → **Masonry Grid** with category filters and high-res lightbox.
 
 ---
 
-## ⚙️ JavaScript Modules
+## 📱 Visionary Breakpoints
 
-| # | Module | Description |
-|---|--------|-------------|
-| 1 | **Preloader** | SVG spinning plate animation, fades out on `window.load` |
-| 2 | **Particle Canvas** | 130+ particles with connecting line network, custom `requestAnimationFrame` loop |
-| 3 | **Navbar Scroll** | Glass nav with `scrolled` class, pixel-perfect padding transitions |
-| 4 | **Mobile Nav** | Animated hamburger toggle with overlay nav list |
-| 5 | **Scroll Reveal** | `IntersectionObserver` with staggered `data-delay` support |
-| 6 | **Stats Counter** | `easeOutCubic` animation — counts from 0 to target value in 2s |
-| 7 | **Menu Tabs** | Tab switching with CSS `fadeIn` transition between panels |
-| 8 | **3D Tilt + Shine** | Physics-based card tilt from mouse position + radial light shine |
-| 9 | **Gallery Lightbox** | Full-screen image viewer, prev/next nav, keyboard (`←→Esc`), touch swipe |
-| 10 | **Testimonials Slider** | Auto-sliding every 5s, dot navigation, touch swipe on mobile |
-| 11 | **Reservation Form** | Loading spinner, simulated API call, success toast notification |
-| 12 | **Back to Top** | Smooth scroll, appears after 400px scroll depth |
-| 13 | **Active Nav Links** | Live scroll tracking, underline indicator per section |
+| Breakpoint | Intelligent Layout Re-map |
+|:-----------|:--------------------------|
+| `> 1100px` | 4-Col Stats, 3-Col Chefs/Events, 4-Col Masonry |
+| `≤ 900px`  | 2-Col Stats/Chefs, 2-Col Gallery, Tall cards disabled |
+| `≤ 768px`  | Mobile Nav Overlay, Favorites mini-mode, 160px grid rows |
+| `≤ 500px`  | Single-col Masonry, Hero text compression, Ticker compact |
 
 ---
 
-## 🚀 Getting Started
+## 🎬 Cinematic Animations
 
-### Option 1 — Open directly
-
-```bash
-# Clone the repository
-git clone https://github.com/HarshChoudhary2003/Bella-Vista.git
-
-# Navigate into the project
-cd Bella-Vista/bella-vista
-
-# Open in browser (Windows)
-start index.html
-
-# Open in browser (macOS)
-open index.html
-```
-
-### Option 2 — Local server (recommended)
-
-```bash
-# Using Python (no install needed)
-python -m http.server 8000
-
-# Using Node.js (npx serve)
-npx serve .
-
-# Visit
-http://localhost:8000
-```
+| Effect | Tech | Experience |
+|:-------|:-----|:-----------|
+| **Confetti Burst** | Canvas 2D | Celebration feedback on form submission |
+| **Magnetic Attraction**| Lerped Transform | Buttons "pull" towards the user's cursor |
+| **Marquee Specials** | Keyframe CSS | Infinite smooth drift of daily highlights |
+| **Stat Surge** | JS Frame Loop | Target numbers "surge" into place on scroll |
+| **Shine Mask** | Radial Gradient | Reflective "glass" light follows the mouse |
 
 ---
 
-## 📱 Responsive Breakpoints
-
-| Breakpoint | Layout |
-|:-----------|:-------|
-| `> 1100px` | Full desktop — 4-column stats, 3-column chefs, events, gallery |
-| `≤ 1100px` | 2-column stats, 2-column events |
-| `≤ 900px`  | 2-column chefs, 2-column gallery, stacked about/contact |
-| `≤ 768px`  | Mobile nav overlay, single column, swipe-enabled slider |
-| `≤ 500px`  | Ultra-mobile, single column gallery, adjusted hero font size |
-
----
-
-## 🎬 Animations Overview
-
-| Animation | Trigger | Effect |
-|:----------|:--------|:-------|
-| Floaty Blobs | Page Load | 3 radial gradient blobs float with `blobFloat` keyframe |
-| Particle Network | Page Load | 130 particles animate with connecting lines |
-| Badge Pulse | Always | Gold glow box-shadow breathing loop |
-| Gold Shimmer | Always | `background-position` animation on hero title |
-| Scroll Wheel | Always | Wheel element scrolls inside mouse icon |
-| Preloader Spin | Page Load | SVG dashed circle spins, fades on load |
-| Stat Counter | Scroll Into View | Cubic ease-out count animation |
-| Tilt + Shine | Mouse Hover | 3D perspective transform + radial gradient shine |
-| Lightbox Fade | Click Gallery | Full-screen overlay with opacity transition |
-| Reveal | Scroll | `translateY(40px) → 0` with `opacity 0 → 1` |
-| Slider Auto | Timed (5s) | Transform-based slides with dot sync |
-
----
-
-## 🔮 Roadmap
-
-- [ ] **Online Ordering** — Add a cart system and Stripe payment integration
-- [ ] **CMS Integration** — Connect menu data to Contentful or Sanity
-- [ ] **Blog / Stories** — Chef blog section with article pages
-- [ ] **Loyalty Program** — Points system for returning guests
-- [ ] **Live Availability** — Real-time table availability checker
-- [ ] **Multi-language** — Italian / English / French toggle
-- [ ] **PWA Support** — Offline-capable progressive web app
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how:
-
-```bash
-# 1. Fork the repository
-# 2. Create your feature branch
-git checkout -b feat/your-amazing-feature
-
-# 3. Commit your changes
-git commit -m "feat: add your amazing feature"
-
-# 4. Push to the branch
-git push origin feat/your-amazing-feature
-
-# 5. Open a Pull Request
-```
-
----
-
-## 📄 License
-
-```
-MIT License — © 2026 Bella Vista Restaurant
-Free to use, modify, and distribute with attribution.
-```
-
----
-
-## 👨‍💻 Author
+## 👨‍💻 Visionary Author
 
 <div align="center">
 
@@ -264,7 +178,7 @@ Free to use, modify, and distribute with attribution.
 
 [![GitHub](https://img.shields.io/badge/GitHub-HarshChoudhary2003-181717?style=for-the-badge&logo=github)](https://github.com/HarshChoudhary2003)
 
-*Built with ☕, passion, and a deep love for Italian food.*
+*Crafted with ☕, Venetian inspiration, and the speed of Light.*
 
 </div>
 
@@ -273,6 +187,6 @@ Free to use, modify, and distribute with attribution.
 <div align="center">
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,14,20&height=120&section=footer&animation=fadeIn" width="100%"/>
 
-**⭐ If you find this project impressive, please star the repository!**
+**⭐ Experience the future of dining. Star this masterpiece.**
 
 </div>
