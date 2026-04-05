@@ -656,6 +656,36 @@
   <span class="fab-text" data-i18n="fab-text">Reserve</span>
 </a>
 
+<!-- AI SOMMELIER BOT -->
+<button class="sommelier-toggle magnetic" id="sommelierToggle" title="Talk to our AI Sommelier">
+  <span class="sommelier-icon">🍷</span>
+  <span class="sommelier-badge" data-i18n="sommelier-badge">AI Assistant</span>
+</button>
+<aside class="sommelier-drawer glass-card" id="sommelierDrawer">
+  <div class="sommelier-header">
+    <div class="sommelier-title">
+      <span class="wine-icon">🥂</span>
+      <div class="sommelier-title-text"><h3 data-i18n="sommelier-title">AI Sommelier</h3><p data-i18n="sommelier-status">Online · Ready to recommend</p></div>
+    </div>
+    <button class="close-btn" id="closeSommelier">✕</button>
+  </div>
+  <div class="sommelier-chat" id="sommelierChat">
+    <div class="msg bot-msg" data-i18n="sommelier-welcome">Ciao! I am your Bella Vista Sommelier. Tell me, what are you craving tonight? (e.g., Seafood, Steak, Dessert)</div>
+  </div>
+  <div class="sommelier-input-wrap">
+    <input type="text" id="sommelierInput" placeholder="Type your craving..." data-i18n-placeholder="sommelier-placeholder">
+    <button id="sommelierSend" class="magnetic">➔</button>
+  </div>
+</aside>
+
+<!-- LIGHTBOX OVERLAY -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lb-close">✕</button>
+  <button class="lb-prev">❮</button>
+  <button class="lb-next">❯</button>
+  <div class="lb-content"><img id="lbImg" src="" alt="Food Preview"></div>
+</div>
+
 <button class="btt-btn" id="bttBtn" title="Back to top">▲</button>
 
 <script src="translations.js"></script>

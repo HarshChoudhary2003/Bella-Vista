@@ -653,4 +653,74 @@ document.addEventListener('DOMContentLoaded', () => {
         recognition.onend = () => voiceBtn.classList.remove('listening');
     }
 
+    /* ─── 32. AI SOMMELIER LOGIC ──────────────────────── */
+    const somToggle = document.getElementById('sommelierToggle');
+    const somDrawer = document.getElementById('sommelierDrawer');
+    const closeSom = document.getElementById('closeSommelier');
+    const somInput = document.getElementById('sommelierInput');
+    const somSend = document.getElementById('sommelierSend');
+    const somChat = document.getElementById('sommelierChat');
+
+    const addSomMsg = (text, type) => {
+        const div = document.createElement('div');
+        div.className = `msg ${type}-msg`;
+        div.textContent = text;
+        somChat?.appendChild(div);
+        if (somChat) somChat.scrollTop = somChat.scrollHeight;
+    };
+
+    const getWineResp = (input) => {
+        const text = input.toLowerCase();
+        if (text.includes('meat') || text.includes('steak') || text.includes('carne')) return "For hearty meats, I recommend our 'Barolo Riserva' for its bold structure and tannins.";
+        if (text.includes('fish') || text.includes('seafood') || text.includes('pesce')) return "With seafood, our 'Greco di Tufo' is unmatched, offering crisp acidity and mineral notes.";
+        if (text.includes('pasta') || text.includes('tomato')) return "For classic red sauces, try our 'Chianti Classico'—it's the heart of Tuscany in a glass.";
+        if (text.includes('dessert') || text.includes('sweet') || text.includes('dolci')) return "Indulge in our 'Passito di Pantelleria', a nectar-like dessert wine with apricot and floral aromas.";
+        return "That sounds delicious! Would you like a refined white, a bold red, or perhaps a sparkling Prosecco to start?";
+    };
+
+    somToggle?.addEventListener('click', () => somDrawer?.classList.toggle('open'));
+    closeSom?.addEventListener('click', () => somDrawer?.classList.remove('open'));
+
+    somSend?.addEventListener('click', () => {
+        const val = somInput?.value.trim();
+        if (!val) return;
+        addSomMsg(val, 'user');
+        if (somInput) somInput.value = '';
+        setTimeout(() => addSomMsg(getWineResp(val), 'bot'), 600);
+    });
+
+    somInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') somSend?.click(); });
+
+    /* ─── 33. LIGHTBOX GALLERY ───────────────────────── */
+    const lb = document.getElementById('lightboxOverlay');
+    const lbImg = document.getElementById('lbImg');
+    const galleryImgs = document.querySelectorAll('.gallery-grid .gallery-item img');
+    let currentIdx = 0;
+
+    const openLB = (idx) => {
+        currentIdx = idx;
+        if (lbImg) lbImg.src = galleryImgs[currentIdx].src;
+        lb?.classList.add('open');
+    };
+
+    galleryImgs.forEach((img, i) => {
+        img.addEventListener('click', () => openLB(i));
+    });
+
+    lb?.addEventListener('click', (e) => {
+        if (e.target === lb || e.target.classList.contains('lb-close')) lb?.classList.remove('open');
+    });
+
+    document.querySelector('.lb-prev')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIdx = (currentIdx - 1 + galleryImgs.length) % galleryImgs.length;
+        if (lbImg) lbImg.src = galleryImgs[currentIdx].src;
+    });
+
+    document.querySelector('.lb-next')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIdx = (currentIdx + 1) % galleryImgs.length;
+        if (lbImg) lbImg.src = galleryImgs[currentIdx].src;
+    });
+
 });
