@@ -113,13 +113,13 @@
     </div>
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home"    class="nav-link">Home</a></li>
-        <li><a href="#menu"    class="nav-link">Menu</a></li>
-        <li><a href="#wine"    class="nav-link">Wine</a></li>
-        <li><a href="#chefs"   class="nav-link">Chefs</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#events"  class="nav-link">Events</a></li>
-        <li><a href="#contact" class="nav-link">Reserve</a></li>
+        <li><a href="#home"    class="nav-link" data-i18n="nav-home">Home</a></li>
+        <li><a href="#menu"    class="nav-link" data-i18n="nav-menu">Menu</a></li>
+        <li><a href="#wine"    class="nav-link" data-i18n="nav-wine">Wine</a></li>
+        <li><a href="#chefs"   class="nav-link" data-i18n="nav-chefs">Chefs</a></li>
+        <li><a href="#gallery" class="nav-link" data-i18n="nav-gallery">Gallery</a></li>
+        <li><a href="#events"  class="nav-link" data-i18n="nav-events">Events</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav-reserve">Reserve</a></li>
       </ul>
     </nav>
       <div class="nav-right">
@@ -155,12 +155,19 @@
       </button>
     </div>
     <div class="setting-item accent-picker">
-      <span>Accent Color</span>
+      <span data-i18n="accent-color">Accent Color</span>
       <div class="accent-colors">
         <button class="accent-btn gold active" data-accent="gold" title="Gold"></button>
         <button class="accent-btn emerald" data-accent="emerald" title="Emerald"></button>
         <button class="accent-btn ruby" data-accent="ruby" title="Ruby"></button>
         <button class="accent-btn sapphire" data-accent="sapphire" title="Sapphire"></button>
+      </div>
+    </div>
+    <div class="setting-item">
+      <span data-i18n="language">Language</span>
+      <div class="lang-selector">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="it">IT</button>
       </div>
     </div>
   </div>
@@ -172,15 +179,15 @@
     <div class="hero-parallax" id="heroParallax"></div>
     <div class="container hero-container">
       <div class="hero-content reveal">
-        <span class="badge">Est. 1987 · Michelin Recognised</span>
-        <h2>A Symphony of<br><span class="highlight">Italian Flavors</span></h2>
-        <p>Handcrafted dishes, imported ingredients, and an atmosphere that transports you to the cobblestoned streets of Florence.</p>
+        <span class="badge" data-i18n="hero-badge">Est. 1987 · Michelin Recognised</span>
+        <h2 data-i18n="hero-title">A Symphony of<br><span class="highlight">Italian Flavors</span></h2>
+        <p data-i18n="hero-desc">Handcrafted dishes, imported ingredients, and an atmosphere that transports you to the cobblestoned streets of Florence.</p>
         <div class="hero-buttons">
           <a href="#menu" class="btn btn-primary-glass magnetic">
-            <span>Explore Menu</span>
+            <span data-i18n="hero-btn-menu">Explore Menu</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#contact" class="btn btn-glass magnetic">Reserve a Table</a>
+          <a href="#contact" class="btn btn-glass magnetic" data-i18n="hero-btn-reserve">Reserve a Table</a>
         </div>
         <div class="hero-awards">
           <div class="award-item"><span>⭐</span><span>Michelin Star</span></div>
@@ -199,7 +206,7 @@
 
   <!-- ══════════ DAILY SPECIALS TICKER ══════════ -->
   <section id="specials" class="ticker-section">
-    <div class="ticker-label">TODAY'S SPECIALS</div>
+    <div class="ticker-label" data-i18n="ticker-label">TODAY'S SPECIALS</div>
     <div class="ticker-track-wrap">
       <div class="ticker-track" id="tickerTrack">
         <span>✦ Branzino al Forno — $44</span>
@@ -217,10 +224,10 @@
   <section id="stats" class="stats-section">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-card glass-card reveal" data-delay="0"><div class="stat-number" data-count="35">0</div><div class="stat-suffix">+</div><p class="stat-label">Years of Heritage</p></div>
-        <div class="stat-card glass-card reveal" data-delay="100"><div class="stat-number" data-count="180">0</div><div class="stat-suffix">+</div><p class="stat-label">Signature Dishes</p></div>
-        <div class="stat-card glass-card reveal" data-delay="200"><div class="stat-number" data-count="12">0</div><div class="stat-suffix">K</div><p class="stat-label">Happy Guests Monthly</p></div>
-        <div class="stat-card glass-card reveal" data-delay="300"><div class="stat-number" data-count="98">0</div><div class="stat-suffix">%</div><p class="stat-label">Guest Satisfaction</p></div>
+        <div class="stat-card glass-card reveal" data-delay="0"><div class="stat-number" data-count="35">0</div><div class="stat-suffix">+</div><p class="stat-label" data-i18n="stat-heritage">Years of Heritage</p></div>
+        <div class="stat-card glass-card reveal" data-delay="100"><div class="stat-number" data-count="180">0</div><div class="stat-suffix">+</div><p class="stat-label" data-i18n="stat-dishes">Signature Dishes</p></div>
+        <div class="stat-card glass-card reveal" data-delay="200"><div class="stat-number" data-count="12">0</div><div class="stat-suffix">K</div><p class="stat-label" data-i18n="stat-guests">Happy Guests Monthly</p></div>
+        <div class="stat-card glass-card reveal" data-delay="300"><div class="stat-number" data-count="98">0</div><div class="stat-suffix">%</div><p class="stat-label" data-i18n="stat-satisfaction">Guest Satisfaction</p></div>
       </div>
     </div>
   </section>
@@ -229,21 +236,21 @@
   <section id="menu" class="menu-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-eyebrow">La Nostra Carta</span>
-        <h2 class="section-title">Our Curated Menu</h2>
-        <p class="section-subtitle">Each dish is a tribute to Italian tradition, reimagined for the modern palate</p>
+        <span class="section-eyebrow" data-i18n="menu-eyebrow">La Nostra Carta</span>
+        <h2 class="section-title" data-i18n="menu-title">Our Curated Menu</h2>
+        <p class="section-subtitle" data-i18n="menu-subtitle">Each dish is a tribute to Italian tradition, reimagined for the modern palate</p>
       </div>
       <div class="menu-controls reveal">
         <div class="menu-tabs" id="menuTabs">
-          <button class="tab-btn active" data-tab="antipasti">Antipasti</button>
-          <button class="tab-btn" data-tab="pasta">Pasta &amp; Risotto</button>
-          <button class="tab-btn" data-tab="secondi">Secondi</button>
-          <button class="tab-btn" data-tab="desserts">Dolci</button>
+          <button class="tab-btn active" data-tab="antipasti" data-i18n="tab-antipasti">Antipasti</button>
+          <button class="tab-btn" data-tab="pasta" data-i18n="tab-pasta">Pasta &amp; Risotto</button>
+          <button class="tab-btn" data-tab="secondi" data-i18n="tab-secondi">Secondi</button>
+          <button class="tab-btn" data-tab="desserts" data-i18n="tab-desserts">Dolci</button>
         </div>
         <div class="menu-search-wrap reveal">
           <div class="search-input-box glass-card">
             <span class="search-icon">🔍</span>
-            <input type="text" id="menuSearch" placeholder="Search for your favorite dish...">
+            <input type="text" id="menuSearch" placeholder="Search for your favorite dish..." data-i18n-placeholder="search-placeholder">
             <button class="clear-search" id="clearSearch">✕</button>
           </div>
         </div>
@@ -374,9 +381,9 @@
   <section id="wine" class="wine-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-eyebrow">La Cantina</span>
-        <h2 class="section-title">Wine Pairing Guide</h2>
-        <p class="section-subtitle">Select a dish to discover the perfect Italian wine</p>
+        <span class="section-eyebrow" data-i18n="wine-eyebrow">La Cantina</span>
+        <h2 class="section-title" data-i18n="wine-title">Wine Pairing Guide</h2>
+        <p class="section-subtitle" data-i18n="wine-subtitle">Select a dish to discover the perfect Italian wine</p>
       </div>
       <div class="wine-pairing-ui glass-card reveal">
         <div class="wine-selector">
@@ -418,7 +425,7 @@
       <div class="chefs-grid">
         <div class="chef-card glass-card tilt-card reveal" data-delay="0">
           <div class="chef-img-wrap"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80" alt="Chef Marco Rossi"><div class="chef-social"><a href="#">IG</a></div></div>
-          <div class="chef-info"><h3>Marco Rossi</h3><span class="chef-title">Executive Chef</span><p>A Florentine native with 25 years across 3-Michelin starred kitchens in Italy and France.</p><div class="chef-specialty"><span>Specialty:</span> Handmade Pasta</div></div>
+          <div class="chef-info"><h3 data-i18n="chef-1-name">Marco Rossi</h3><span class="chef-title" data-i18n="chef-1-title">Executive Chef</span><p data-i18n="chef-1-desc">A Florentine native with 25 years across 3-Michelin starred kitchens in Italy and France.</p><div class="chef-specialty"><span data-i18n="specialty-label">Specialty:</span> <span data-i18n="chef-1-specialty">Handmade Pasta</span></div></div>
         </div>
         <div class="chef-card glass-card tilt-card reveal" data-delay="150">
           <div class="chef-img-wrap"><img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=400&q=80" alt="Chef Sofia Conti"><div class="chef-social"><a href="#">IG</a></div></div>
@@ -568,9 +575,9 @@
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-eyebrow">Join Us</span>
-        <h2 class="section-title">Reserve Your Table</h2>
-        <p class="section-subtitle">Secure your place at the most coveted table in the city</p>
+        <span class="section-eyebrow" data-i18n="contact-eyebrow">Join Us</span>
+        <h2 class="section-title" data-i18n="contact-title">Reserve Your Table</h2>
+        <p class="section-subtitle" data-i18n="contact-subtitle">Secure your place at the most coveted table in the city</p>
       </div>
       <div class="contact-content">
         <div class="contact-info glass-card reveal">
@@ -629,7 +636,7 @@
     </div>
 <a href="#contact" class="fab-reserve magnetic" id="fabReserve" aria-label="Quick Reserve">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-  <span class="fab-text">Reserve</span>
+  <span class="fab-text" data-i18n="fab-text">Reserve</span>
 </a>
 
 <button class="btt-btn" id="bttBtn" title="Back to top">▲</button>

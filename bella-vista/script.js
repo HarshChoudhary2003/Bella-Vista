@@ -563,4 +563,57 @@ document.addEventListener('DOMContentLoaded', () => {
         if (bars[2]) bars[2].style.width = '65%';
     }, 1200);
 
+    /* ─── 28. MULTI-LANGUAGE (i18n) ────────────────────── */
+    const translations = {
+        en: {
+            "nav-home": "Home", "nav-menu": "Menu", "nav-wine": "Wine", "nav-chefs": "Chefs", "nav-gallery": "Gallery", "nav-events": "Events", "nav-reserve": "Reserve",
+            "accent-color": "Accent Color", "language": "Language",
+            "hero-badge": "Est. 1987 · Michelin Recognised", "hero-title": "A Symphony of Italian Flavors", "hero-desc": "Handcrafted dishes, imported ingredients, and an atmosphere that transports you to the cobblestoned streets of Florence.", "hero-btn-menu": "Explore Menu", "hero-btn-reserve": "Reserve a Table",
+            "ticker-label": "TODAY'S SPECIALS",
+            "stat-heritage": "Years of Heritage", "stat-dishes": "Signature Dishes", "stat-guests": "Happy Guests Monthly", "stat-satisfaction": "Guest Satisfaction",
+            "menu-eyebrow": "La Nostra Carta", "menu-title": "Our Curated Menu", "menu-subtitle": "Each dish is a tribute to Italian tradition, reimagined for the modern palate",
+            "tab-antipasti": "Antipasti", "tab-pasta": "Pasta & Risotto", "tab-secondi": "Secondi", "tab-desserts": "Dolci",
+            "search-placeholder": "Search for your favorite dish...",
+            "wine-eyebrow": "La Cantina", "wine-title": "Wine Pairing Guide", "wine-subtitle": "Select a dish to discover the perfect Italian wine",
+            "chef-1-name": "Marco Rossi", "chef-1-title": "Executive Chef", "chef-1-desc": "A Florentine native with 25 years across 3-Michelin starred kitchens in Italy and France.", "specialty-label": "Specialty:", "chef-1-specialty": "Handmade Pasta",
+            "contact-eyebrow": "Join Us", "contact-title": "Reserve Your Table", "contact-subtitle": "Secure your place at the most coveted table in the city",
+            "fab-text": "Reserve"
+        },
+        it: {
+            "nav-home": "Home", "nav-menu": "Menu", "nav-wine": "Vini", "nav-chefs": "Chef", "nav-gallery": "Galleria", "nav-events": "Eventi", "nav-reserve": "Prenota",
+            "accent-color": "Colore Accento", "language": "Lingua",
+            "hero-badge": "Dal 1987 · Riconosciuto Michelin", "hero-title": "Una Sinfonia di Sapori Italiani", "hero-desc": "Piatti artigianali, ingredienti importati e un'atmosfera che ti trasporta nelle strade di Firenze.", "hero-btn-menu": "Esplora Menu", "hero-btn-reserve": "Prenota un Tavolo",
+            "ticker-label": "SPECIALITÀ DI OGGI",
+            "stat-heritage": "Anni di Storia", "stat-dishes": "Piatti d'Autore", "stat-guests": "Ospiti Felici Mensili", "stat-satisfaction": "Soddisfazione Ospiti",
+            "menu-eyebrow": "La Nostra Carta", "menu-title": "Il Nostro Menu", "menu-subtitle": "Ogni piatto è un omaggio alla tradizione italiana, reinventato per il palato moderno",
+            "tab-antipasti": "Antipasti", "tab-pasta": "Pasta e Risotto", "tab-secondi": "Secondi", "tab-desserts": "Dolci",
+            "search-placeholder": "Cerca il tuo piatto preferito...",
+            "wine-eyebrow": "La Cantina", "wine-title": "Guida Abbinamento Vini", "wine-subtitle": "Seleziona un piatto per scoprire il vino italiano perfetto",
+            "chef-1-name": "Marco Rossi", "chef-1-title": "Executive Chef", "chef-1-desc": "Nativo di Firenze con 25 anni di esperienza in cucine 3 stelle Michelin in Italia e Francia.", "specialty-label": "Specialità:", "chef-1-specialty": "Pasta Fatta a Mano",
+            "contact-eyebrow": "Unisciti a Noi", "contact-title": "Prenota il Tuo Tavolo", "contact-subtitle": "Assicurati il tuo posto al tavolo più ambito della città",
+            "fab-text": "Prenota"
+        }
+    };
+
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const updateLanguage = (lang) => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.dataset.i18nPlaceholder;
+            if (translations[lang][key]) el.placeholder = translations[lang][key];
+        });
+        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+        localStorage.setItem('bv-lang', lang);
+    };
+
+    const savedLang = localStorage.getItem('bv-lang') || 'en';
+    updateLanguage(savedLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => updateLanguage(btn.dataset.lang));
+    });
+
 });
