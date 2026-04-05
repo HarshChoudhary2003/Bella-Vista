@@ -11,7 +11,8 @@ const translations = {
         "wine-eyebrow": "La Cantina", "wine-title": "Wine Pairing Guide", "wine-subtitle": "Select a dish to discover the perfect Italian wine",
         "chef-1-name": "Marco Rossi", "chef-1-title": "Executive Chef", "chef-1-desc": "A Florentine native with 25 years across 3-Michelin starred kitchens in Italy and France.", "specialty-label": "Specialty:", "chef-1-specialty": "Handmade Pasta",
         "contact-eyebrow": "Join Us", "contact-title": "Reserve Your Table", "contact-subtitle": "Secure your place at the most coveted table in the city",
-        "fab-text": "Reserve"
+        "fab-text": "Reserve",
+        "qr-title": "Scan & Experience", "qr-desc": "Take our curated digital menu with you. Scan to explore our seasonal collection on your mobile device."
     },
     it: {
         "nav-home": "Home", "nav-menu": "Menu", "nav-wine": "Vini", "nav-chefs": "Chef", "nav-gallery": "Galleria", "nav-events": "Eventi", "nav-reserve": "Prenota",
@@ -23,9 +24,10 @@ const translations = {
         "tab-antipasti": "Antipasti", "tab-pasta": "Pasta e Risotto", "tab-secondi": "Secondi", "tab-desserts": "Dolci",
         "search-placeholder": "Cerca il tuo piatto preferito...",
         "wine-eyebrow": "La Cantina", "wine-title": "Guida Abbinamento Vini", "wine-subtitle": "Seleziona un piatto per scoprire il vino italiano perfetto",
-        "chef-1-name": "Marco Rossi", "chef-1-title": "Executive Chef", "chef-1-desc": "Nativo di Firenze con 25 anni di esperienza in cucine 3 stelle Michelin in Italia e Francia.", "specialty-label": "Specialità:", "chef-1-specialty": "Pasta Fatta a Mano",
+        "chef-1-name": "Marco Rossi", "chef-1-title": "Executive Chef", "chef-1-desc": "Nativo di Firenze con 25 anni di experiencia in cucine 3 stelle Michelin in Italia e Francia.", "specialty-label": "Specialità:", "chef-1-specialty": "Pasta Fatta a Mano",
         "contact-eyebrow": "Unisciti a Noi", "contact-title": "Prenota il Tuo Tavolo", "contact-subtitle": "Assicurati il tuo posto al tavolo più ambito della città",
-        "fab-text": "Prenota"
+        "fab-text": "Prenota",
+        "qr-title": "Scansiona e Vivi", "qr-desc": "Porta con te il nostro menu digitale curato. Scansiona per esplorare la nostra collezione stagionale sul tuo dispositivo mobile."
     },
     fr: {
         "nav-home": "Accueil", "nav-menu": "Menu", "nav-wine": "Vin", "nav-chefs": "Chefs", "nav-gallery": "Galerie", "nav-events": "Événements", "nav-reserve": "Réserver",

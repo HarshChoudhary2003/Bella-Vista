@@ -605,4 +605,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langSelect?.addEventListener('change', (e) => updateLanguage(e.target.value));
 
+    /* ─── 29. CUSTOM CURSOR ───────────────────────────── */
+    const crsrDot = document.getElementById('cursor-dot');
+    const crsrRing = document.getElementById('cursor-ring');
+    
+    window.addEventListener('mousemove', e => {
+        if(crsrDot) crsrDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        if(crsrRing) crsrRing.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    document.querySelectorAll('a, button, input, select').forEach(el => {
+        el.addEventListener('mouseenter', () => crsrRing?.classList.add('hover'));
+        el.addEventListener('mouseleave', () => crsrRing?.classList.remove('hover'));
+    });
+
+    /* ─── 30. SCROLL PROGRESS ─────────────────────────── */
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const bar = document.getElementById('scroll-progress');
+        if (bar) bar.style.width = scrolled + "%";
+    });
+
+    /* ─── 31. VOICE SEARCH ───────────────────────────── */
+    const voiceBtn = document.getElementById('voiceSearch');
+    if (voiceBtn && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.lang = savedLang === 'it' ? 'it-IT' : 'en-US';
+        
+        voiceBtn.addEventListener('click', () => {
+            voiceBtn.classList.add('listening');
+            recognition.start();
+        });
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            if (menuSearch) {
+                menuSearch.value = transcript;
+                handleSearch();
+            }
+            voiceBtn.classList.remove('listening');
+        };
+
+        recognition.onerror = () => voiceBtn.classList.remove('listening');
+        recognition.onend = () => voiceBtn.classList.remove('listening');
+    }
+
 });

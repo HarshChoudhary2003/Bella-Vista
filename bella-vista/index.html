@@ -248,8 +248,11 @@
         </div>
         <div class="menu-search-wrap reveal">
           <div class="search-input-box glass-card">
-            <span class="search-icon">🔍</span>
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="color:var(--text-3);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             <input type="text" id="menuSearch" placeholder="Search for your favorite dish..." data-i18n-placeholder="search-placeholder">
+            <button class="voice-search-btn" id="voiceSearch" title="Voice Search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </button>
             <button class="clear-search" id="clearSearch">✕</button>
           </div>
         </div>
@@ -617,6 +620,21 @@
     </div>
   </section>
 </main>
+
+<!-- SCAN & GO SECTION -->
+<section class="qr-section reveal">
+  <div class="container">
+    <div class="qr-container">
+      <div class="qr-code-mock">
+        <svg viewBox="0 0 100 100"><path d="M10 10h30v30h-30zM50 10h10v10h-10zM70 10h20v20h-20zM10 50h10v10h-10zM10 70h20v20h-20zM40 40h20v20h-20zM60 60h10v10h-10zM80 80h10v10h-10zM30 60h10v10h-10z" fill="#000"/></svg>
+      </div>
+      <div class="qr-text">
+        <h4 data-i18n="qr-title">Scan & Experience</h4>
+        <p data-i18n="qr-desc">Take our curated digital menu with you. Scan to explore our seasonal collection on your mobile device.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONFETTI CANVAS -->
 <canvas id="confettiCanvas" style="position:fixed;inset:0;pointer-events:none;z-index:999;display:none;"></canvas>
