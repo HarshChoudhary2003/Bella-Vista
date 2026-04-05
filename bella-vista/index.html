@@ -165,10 +165,9 @@
     </div>
     <div class="setting-item">
       <span data-i18n="language">Language</span>
-      <div class="lang-selector">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="it">IT</button>
-      </div>
+      <select class="lang-select-box" id="langSelect">
+        <!-- Will be populated by JS -->
+      </select>
     </div>
   </div>
 </aside>
@@ -641,6 +640,7 @@
 
 <button class="btt-btn" id="bttBtn" title="Back to top">▲</button>
 
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
