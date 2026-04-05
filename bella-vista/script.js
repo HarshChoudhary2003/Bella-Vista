@@ -191,11 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ─── 12. DIETARY FILTER ────────────────────────────── */
     const dietBtns = document.querySelectorAll('.diet-btn');
     const applyDietFilter = (diet, panel) => {
+        currentDiet = diet;
+        const query = menuSearch?.value.toLowerCase().trim() || '';
         const items = (panel || document.querySelector('.menu-panel.active'))?.querySelectorAll('.menu-item') || [];
         items.forEach(item => {
-            if (diet === 'all') { item.classList.remove('hidden'); return; }
             const diets = item.dataset.diets || '';
-            item.classList.toggle('hidden', !diets.includes(diet));
+            const dietMatch = diet === 'all' || diets.includes(diet);
+            
+            const name = item.querySelector('h4')?.textContent.toLowerCase() || '';
+            const desc = item.querySelector('p')?.textContent.toLowerCase() || '';
+            const searchMatch = query === '' || name.includes(query) || desc.includes(query);
+            
+            item.classList.toggle('hidden', !(dietMatch && searchMatch));
         });
     };
     dietBtns.forEach(btn => {
@@ -471,6 +478,84 @@ document.addEventListener('DOMContentLoaded', () => {
     bttBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     /* ─── 23. INIT WINE METER ON LOAD ───────────────────── */
+    /* ─── 24. SETTINGS PANEL LOGIC ─────────────────────── */
+    const settingsToggle = document.getElementById('settingsToggle');
+    const settingsPanel = document.getElementById('settingsPanel');
+    const closeSettings = document.getElementById('closeSettings');
+    const themeBtn = document.getElementById('themeToggle');
+    const accentBtns = document.querySelectorAll('.accent-btn');
+
+    settingsToggle?.addEventListener('click', () => settingsPanel?.classList.toggle('open'));
+    closeSettings?.addEventListener('click', () => settingsPanel?.classList.remove('open'));
+
+    // Theme Toggle
+    const applyTheme = (isLight) => {
+        document.body.classList.toggle('light-theme', isLight);
+        localStorage.setItem('bv-theme', isLight ? 'light' : 'dark');
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+        if (metaTheme) metaTheme.content = isLight ? '#f8fafc' : '#020617';
+    };
+
+    const savedTheme = localStorage.getItem('bv-theme') || 'dark';
+    applyTheme(savedTheme === 'light');
+
+    themeBtn?.addEventListener('click', () => {
+        const isCurrentlyLight = document.body.classList.contains('light-theme');
+        applyTheme(!isCurrentlyLight);
+    });
+
+    // Accent Picker
+    const applyAccent = (accent) => {
+        document.body.classList.remove('accent-gold', 'accent-emerald', 'accent-ruby', 'accent-sapphire');
+        document.body.classList.add(`accent-${accent}`);
+        accentBtns.forEach(b => b.classList.toggle('active', b.dataset.accent === accent));
+        localStorage.setItem('bv-accent', accent);
+    };
+
+    const savedAccent = localStorage.getItem('bv-accent') || 'gold';
+    applyAccent(savedAccent);
+
+    accentBtns.forEach(btn => {
+        btn.addEventListener('click', () => applyAccent(btn.dataset.accent));
+    });
+
+    /* ─── 25. MENU SEARCH LOGIC ─────────────────────────── */
+    const menuSearch = document.getElementById('menuSearch');
+    const clearSearch = document.getElementById('clearSearch');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    const handleSearch = () => {
+        const query = menuSearch.value.toLowerCase().trim();
+        clearSearch?.classList.toggle('visible', query.length > 0);
+
+        menuItems.forEach(item => {
+            const name = item.querySelector('h4')?.textContent.toLowerCase() || '';
+            const desc = item.querySelector('p')?.textContent.toLowerCase() || '';
+            const match = name.includes(query) || desc.includes(query);
+            
+            // Only show if it matches search AND current dietary filter
+            const diets = item.dataset.diets || '';
+            const dietMatch = currentDiet === 'all' || diets.includes(currentDiet);
+            
+            item.classList.toggle('hidden', !(match && dietMatch));
+        });
+    };
+
+    menuSearch?.addEventListener('input', handleSearch);
+    clearSearch?.addEventListener('click', () => {
+        menuSearch.value = '';
+        handleSearch();
+        menuSearch.focus();
+    });
+
+    /* ─── 26. SERVICE WORKER REGISTRATION ──────────────── */
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+    }
+
+    /* ─── 27. WINE METER INIT ────────────────────────── */
     setTimeout(() => {
         const bars = document.querySelectorAll('.wine-bar-fill');
         if (bars[0]) bars[0].style.width = '90%';

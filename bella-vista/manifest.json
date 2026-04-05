@@ -1,0 +1,16 @@
+{
+  "name": "Bella Vista | Authentic Italian Cuisine",
+  "short_name": "Bella Vista",
+  "description": "Experience the art of world-class authentic Italian dining.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
