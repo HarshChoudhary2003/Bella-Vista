@@ -320,8 +320,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             // Rebuild visible set for lightbox nav
-            visibleItems = Array.from(galleryItems).filter(el => !el.classList.contains('gf-hidden'));
+            visibleItems = Array.from(galleryItems).filter(el => !el.classList.contains('gf-hidden') && !el.classList.contains('hidden-item'));
         });
+    });
+
+    /* Load More Gallery */
+    const loadMoreBtn = document.getElementById('loadMoreGallery');
+    loadMoreBtn?.addEventListener('click', () => {
+        document.querySelectorAll('.hidden-item').forEach(el => {
+            el.classList.remove('hidden-item');
+            el.style.animation = 'fadeIn 0.6s ease both';
+        });
+        loadMoreBtn.parentElement.style.display = 'none';
+        visibleItems = Array.from(galleryItems).filter(el => !el.classList.contains('gf-hidden'));
     });
 
     /* Lightbox */

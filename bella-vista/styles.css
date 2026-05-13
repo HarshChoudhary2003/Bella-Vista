@@ -248,13 +248,20 @@ section:not(.hero):not(.stats-section):not(.ticker-section) { padding:7rem 0; }
 /* ─── GALLERY ─── */
 .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
 .gallery-grid .gallery-item:nth-child(1) { grid-column:span 2; }
-.gallery-item { position:relative; overflow:hidden; border-radius:var(--radius); cursor:pointer; aspect-ratio:4/3; }
+.gallery-item { position:relative; overflow:hidden; border-radius:var(--radius); cursor:pointer; aspect-ratio:4/3; box-shadow:var(--shadow); transition:transform var(--t), box-shadow var(--t); background:var(--surface); border:none; }
 .gallery-item:nth-child(1) { aspect-ratio:auto; min-height:280px; }
-.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
-.gallery-item:hover img { transform:scale(1.07); }
-.gallery-overlay { position:absolute; inset:0; background:rgba(2,6,23,0.45); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity var(--t); }
-.gallery-overlay span { font-size:2rem; color:var(--accent); }
-.gallery-item:hover .gallery-overlay { opacity:1; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+.gallery-item:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); }
+.gallery-item:hover img { transform:scale(1.08); }
+.gallery-overlay { position:absolute; inset:0; background:rgba(var(--bg-rgb, 2,6,23), 0.5); backdrop-filter:blur(4px); display:flex; flex-direction:column; align-items:center; justify-content:center; opacity:0; transition:all 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform:translateY(20px); }
+.gallery-overlay .go-icon { font-size:2.2rem; color:var(--accent); margin-bottom:0.5rem; transform:scale(0.8); transition:all 0.4s 0.1s; }
+.gallery-overlay .go-label { color:#fff; font-family:var(--font-h); font-size:1.4rem; letter-spacing:1px; transform:translateY(10px); transition:all 0.4s 0.2s; opacity:0; }
+.gallery-item:hover .gallery-overlay { opacity:1; transform:translateY(0); }
+.gallery-item:hover .gallery-overlay .go-icon { transform:scale(1); }
+.gallery-item:hover .gallery-overlay .go-label { transform:translateY(0); opacity:1; }
+
+.gallery-load-more { text-align:center; margin-top:3rem; }
+.hidden-item { display:none !important; }
 
 /* ─── LIGHTBOX ─── */
 .lightbox { position:fixed; inset:0; background:rgba(2,6,23,0.97); z-index:500; display:none; align-items:center; justify-content:center; gap:2rem; padding:2rem; backdrop-filter:blur(12px); }
