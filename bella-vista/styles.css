@@ -30,18 +30,19 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 /* ─── LIGHT THEME ─── */
 body.light-theme {
-    --bg:            #e0e5ec;
-    --surface:       #e0e5ec;
-    --surface-hover: #e0e5ec;
+    --bg:            #F7F5F0;
+    --surface:       #F7F5F0;
+    --surface-hover: #F7F5F0;
     --border:        transparent;
     --border-hover:  transparent;
-    --text-1:        #0f172a;
-    --text-2:        #475569;
-    --text-3:        #94a3b8;
-    --shadow:        9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
-    --shadow-hover:  12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255, 0.6);
-    --shadow-inset:  inset 6px 6px 10px 0 rgba(163,177,198, 0.5), inset -6px -6px 10px 0 rgba(255,255,255, 1);
-    --header-bg:     rgba(224,229,236,0.9);
+    --text-1:        #2C2A26;
+    --text-2:        #5C5954;
+    --text-3:        #9E9A92;
+    --shadow:        8px 8px 16px rgba(215, 210, 200, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.9);
+    --shadow-hover:  12px 12px 24px rgba(215, 210, 200, 0.7), -12px -12px 24px rgba(255, 255, 255, 1);
+    --shadow-inset:  inset 5px 5px 10px rgba(215, 210, 200, 0.7), inset -5px -5px 10px rgba(255, 255, 255, 1);
+    --header-bg:     rgba(247, 245, 240, 0.9);
+    --bg-rgb:        247, 245, 240;
 }
 
 /* ─── ACCENT COLORS ─── */
