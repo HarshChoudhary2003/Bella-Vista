@@ -752,4 +752,84 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lbImg) lbImg.src = galleryImgs[currentIdx].src;
     });
 
+    /* ─── 34. AI CONCIERGE WIDGET ────────────────────── */
+    const aiChatBtn = document.getElementById('aiChatBtn');
+    const aiChatWindow = document.getElementById('aiChatWindow');
+    const aiChatClose = document.getElementById('aiChatClose');
+    const aiChatMessages = document.getElementById('aiChatMessages');
+    const aiChatInputText = document.getElementById('aiChatInputText');
+    const aiChatSend = document.getElementById('aiChatSend');
+
+    if (aiChatBtn && aiChatWindow) {
+        aiChatBtn.addEventListener('click', () => {
+            aiChatWindow.classList.add('open');
+            aiChatInputText.focus();
+        });
+        aiChatClose.addEventListener('click', () => {
+            aiChatWindow.classList.remove('open');
+        });
+
+        const addMessage = (text, isAi = false) => {
+            const msg = document.createElement('div');
+            msg.className = `chat-msg ${isAi ? 'ai-msg' : 'user-msg'}`;
+            msg.innerHTML = `<p>${text}</p>`;
+            aiChatMessages.appendChild(msg);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        };
+
+        const showTyping = () => {
+            const typing = document.createElement('div');
+            typing.className = 'chat-msg ai-msg typing-indicator-wrapper';
+            typing.id = 'typingIndicator';
+            typing.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+            aiChatMessages.appendChild(typing);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        };
+
+        const removeTyping = () => {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        };
+
+        const processUserQuery = (query) => {
+            const q = query.toLowerCase();
+            let response = "I'm sorry, I couldn't quite understand that. Would you like me to connect you with our maitre d'?";
+            
+            if (q.includes('dress code') || q.includes('wear')) {
+                response = "Our dress code is smart elegant. We kindly ask gentlemen to wear collared shirts and trousers. Jackets are preferred but not strictly required.";
+            } else if (q.includes('vegan') || q.includes('vegetarian')) {
+                response = "Absolutely. We offer a curated plant-based tasting menu. Our chef is also happy to modify many of our signature dishes to accommodate dietary preferences.";
+            } else if (q.includes('reservation') || q.includes('book')) {
+                response = "You can make a reservation by clicking the 'Reserve a Table' button. We are currently fully booked for this weekend, but have availability starting Tuesday.";
+            } else if (q.includes('hours') || q.includes('open')) {
+                response = "We are open Tuesday through Sunday. Dinner service runs from 5:30 PM to 10:30 PM. We are closed on Mondays.";
+            } else if (q.includes('price') || q.includes('cost')) {
+                response = "Our signature tasting menu is $185 per person. À la carte options range from $32 to $85. We also offer a premium wine pairing for $110.";
+            } else if (q.includes('hello') || q.includes('hi')) {
+                response = "Buongiorno! How can I elevate your dining experience today?";
+            } else if (q.includes('menu') || q.includes('food')) {
+                response = "Our menu focuses on modern Italian cuisine. We have a selection of antipasti, handmade pasta, and wood-fired mains. Feel free to explore the menu section above!";
+            }
+
+            setTimeout(() => {
+                removeTyping();
+                addMessage(response, true);
+            }, 1200);
+        };
+
+        const handleSend = () => {
+            const text = aiChatInputText.value.trim();
+            if (!text) return;
+            addMessage(text, false);
+            aiChatInputText.value = '';
+            showTyping();
+            processUserQuery(text);
+        };
+
+        aiChatSend.addEventListener('click', handleSend);
+        aiChatInputText.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+    }
+
 });

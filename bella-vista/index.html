@@ -733,6 +733,33 @@
 
 <button class="btt-btn" id="bttBtn" title="Back to top">▲</button>
 
+  <!-- ══════════ AI CONCIERGE WIDGET ══════════ -->
+  <div class="ai-concierge-widget">
+    <button class="ai-chat-btn magnetic" id="aiChatBtn" aria-label="Open AI Concierge">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      <span class="ai-sparkle">✨</span>
+    </button>
+    <div class="ai-chat-window glass-card" id="aiChatWindow">
+      <div class="ai-chat-header">
+        <div class="ai-avatar">✨</div>
+        <div>
+          <h4>Bella AI</h4>
+          <p>Your Virtual Concierge</p>
+        </div>
+        <button class="ai-chat-close" id="aiChatClose">✕</button>
+      </div>
+      <div class="ai-chat-messages" id="aiChatMessages">
+        <div class="chat-msg ai-msg">
+          <p>Benvenuto! I am Bella, your AI Concierge. How can I assist you with your dining experience today?</p>
+        </div>
+      </div>
+      <div class="ai-chat-input">
+        <input type="text" id="aiChatInputText" placeholder="Ask about the menu, dress code...">
+        <button id="aiChatSend" class="magnetic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+      </div>
+    </div>
+  </div>
+
 <script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
