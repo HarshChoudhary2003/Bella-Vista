@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
     window.addEventListener('load', () => setTimeout(() => preloader && preloader.classList.add('hidden'), 700));
 
-    /* ─── 4. PARTICLE CANVAS ────────────────────────────── */
+    /* ─── 4. 3D PARTICLE SPACE PARALLAX ─────────────────── */
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -53,43 +53,43 @@ document.addEventListener('DOMContentLoaded', () => {
         class Particle {
             constructor() { this.reset(); }
             reset() {
-                this.x = Math.random() * W; this.y = Math.random() * H;
-                this.r = Math.random() * 1.8 + 0.3;
-                this.alpha = Math.random() * 0.4 + 0.05;
-                this.vx = (Math.random() - 0.5) * 0.22;
-                this.vy = (Math.random() - 0.5) * 0.22;
+                this.x = (Math.random() - 0.5) * W * 2;
+                this.y = (Math.random() - 0.5) * H * 2;
+                this.z = Math.random() * 1000 + 100;
+                this.vz = Math.random() * 3 + 1; // fly towards camera
                 this.gold = Math.random() > 0.5;
             }
             update() {
-                this.x += this.vx; this.y += this.vy;
-                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+                this.z -= this.vz;
+                if (this.z <= 0) this.reset();
             }
             draw() {
-                ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-                ctx.fillStyle = this.gold ? `rgba(202,138,4,${this.alpha})` : `rgba(148,163,184,${this.alpha})`;
+                const scale = 800 / (800 + this.z);
+                const px = (this.x * scale) + W / 2;
+                const py = (this.y * scale) + H / 2;
+                const r = Math.max(0.1, (4 * scale));
+                const alpha = Math.min(1, scale * 1.5);
+                ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2);
+                ctx.fillStyle = this.gold ? `rgba(202,138,4,${alpha})` : `rgba(148,163,184,${alpha})`;
                 ctx.fill();
             }
         }
-        const COUNT = Math.min(140, Math.floor((W * H) / 11000));
-        for (let i = 0; i < COUNT; i++) particles.push(new Particle());
-        const drawLines = () => {
-            const d = 110;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-                    const dist = Math.hypot(dx, dy);
-                    if (dist < d) { ctx.beginPath(); ctx.strokeStyle = `rgba(202,138,4,${(1 - dist / d) * 0.1})`; ctx.lineWidth = 0.5; ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); }
-                }
-            }
+        for (let i = 0; i < 300; i++) particles.push(new Particle());
+        const loop = () => { 
+            // 3D warp space trail effect
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.3)'; 
+            ctx.fillRect(0, 0, W, H); 
+            particles.forEach(p => { p.update(); p.draw(); }); 
+            requestAnimationFrame(loop); 
         };
-        const loop = () => { ctx.clearRect(0, 0, W, H); particles.forEach(p => { p.update(); p.draw(); }); drawLines(); requestAnimationFrame(loop); };
         loop();
     }
 
-    /* ─── 5. HERO 3D PARALLAX ───────────────────────────── */
-    const heroParallax = document.getElementById('heroParallax');
-    const heroContent = document.querySelector('.hero-content');
+    /* ─── 5. GLOBAL 3D SPATIAL PARALLAX ─────────────────── */
+    const mainEl = document.querySelector('main');
     
+    // We will still keep the hero background parallax
+    const heroParallax = document.getElementById('heroParallax');
     if (heroParallax) {
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
@@ -97,17 +97,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
     
-    if (heroContent) {
+    // 3D rotation applied to the entire main container!
+    if (mainEl) {
         window.addEventListener('mousemove', e => {
-            if (window.scrollY > window.innerHeight) return; // Only animate when visible
-            const x = (e.clientX / window.innerWidth - 0.5) * 12; // Max 6deg rotate
-            const y = (e.clientY / window.innerHeight - 0.5) * -12;
-            heroContent.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg)`;
+            // Calculate a gentle global rotation
+            const x = (e.clientX / window.innerWidth - 0.5) * 8; // Max 4deg rotation
+            const y = (e.clientY / window.innerHeight - 0.5) * -8;
+            
+            // Move it smoothly
+            mainEl.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
         });
         
-        // Reset on leave (in case of switching tabs/windows)
         window.addEventListener('mouseleave', () => {
-            heroContent.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            mainEl.style.transform = `rotateX(0deg) rotateY(0deg)`;
         });
     }
 
