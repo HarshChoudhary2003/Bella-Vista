@@ -759,14 +759,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const aiChatMessages = document.getElementById('aiChatMessages');
     const aiChatInputText = document.getElementById('aiChatInputText');
     const aiChatSend = document.getElementById('aiChatSend');
+    const aiMicBtn = document.getElementById('aiMicBtn');
+    const aiVoiceToggle = document.getElementById('aiVoiceToggle');
+    
+    let voiceEnabled = true;
 
     if (aiChatBtn && aiChatWindow) {
+        // Toggle Voice
+        aiVoiceToggle.addEventListener('click', () => {
+            voiceEnabled = !voiceEnabled;
+            aiVoiceToggle.style.opacity = voiceEnabled ? '1' : '0.4';
+            aiVoiceToggle.title = voiceEnabled ? "Voice On" : "Voice Off";
+            if (!voiceEnabled) window.speechSynthesis.cancel();
+        });
+
         aiChatBtn.addEventListener('click', () => {
             aiChatWindow.classList.add('open');
             aiChatInputText.focus();
         });
         aiChatClose.addEventListener('click', () => {
             aiChatWindow.classList.remove('open');
+            window.speechSynthesis.cancel(); // Stop talking if closed
         });
 
         const addMessage = (text, isAi = false) => {
@@ -775,6 +788,17 @@ document.addEventListener('DOMContentLoaded', () => {
             msg.innerHTML = `<p>${text}</p>`;
             aiChatMessages.appendChild(msg);
             aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            
+            if (isAi && voiceEnabled) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                // Try to find a nice female English or Italian voice
+                const voices = window.speechSynthesis.getVoices();
+                const bellaVoice = voices.find(v => v.lang.includes('it-') || (v.lang.includes('en-') && v.name.includes('Female')));
+                if (bellaVoice) utterance.voice = bellaVoice;
+                utterance.pitch = 1.1;
+                utterance.rate = 0.95;
+                window.speechSynthesis.speak(utterance);
+            }
         };
 
         const showTyping = () => {
@@ -800,15 +824,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (q.includes('vegan') || q.includes('vegetarian')) {
                 response = "Absolutely. We offer a curated plant-based tasting menu. Our chef is also happy to modify many of our signature dishes to accommodate dietary preferences.";
             } else if (q.includes('reservation') || q.includes('book')) {
-                response = "You can make a reservation by clicking the 'Reserve a Table' button. We are currently fully booked for this weekend, but have availability starting Tuesday.";
+                response = "You can make a reservation by clicking the Reserve a Table button. We are currently fully booked for this weekend, but have availability starting Tuesday.";
             } else if (q.includes('hours') || q.includes('open')) {
                 response = "We are open Tuesday through Sunday. Dinner service runs from 5:30 PM to 10:30 PM. We are closed on Mondays.";
             } else if (q.includes('price') || q.includes('cost')) {
-                response = "Our signature tasting menu is $185 per person. À la carte options range from $32 to $85. We also offer a premium wine pairing for $110.";
+                response = "Our signature tasting menu is 185 dollars per person. A la carte options range from 32 to 85 dollars. We also offer a premium wine pairing for 110 dollars.";
             } else if (q.includes('hello') || q.includes('hi')) {
                 response = "Buongiorno! How can I elevate your dining experience today?";
             } else if (q.includes('menu') || q.includes('food')) {
-                response = "Our menu focuses on modern Italian cuisine. We have a selection of antipasti, handmade pasta, and wood-fired mains. Feel free to explore the menu section above!";
+                response = "Our menu focuses on modern Italian cuisine. We have a selection of antipasti, handmade pasta, and wood-fired mains.";
+            } else if (q.includes('wine')) {
+                response = "Our cellar features over 500 labels, focusing on rare Italian vintages and modern biodynamic producers. Would you like to use our AI Sommelier?";
             }
 
             setTimeout(() => {
@@ -830,6 +856,46 @@ document.addEventListener('DOMContentLoaded', () => {
         aiChatInputText.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleSend();
         });
+
+        // Web Speech API for Voice Input
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                aiMicBtn.classList.add('listening');
+                aiChatInputText.placeholder = "Listening...";
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                aiChatInputText.value = transcript;
+                handleSend();
+            };
+
+            recognition.onerror = () => {
+                aiMicBtn.classList.remove('listening');
+                aiChatInputText.placeholder = "Ask about the menu...";
+            };
+
+            recognition.onend = () => {
+                aiMicBtn.classList.remove('listening');
+                aiChatInputText.placeholder = "Ask about the menu...";
+            };
+
+            aiMicBtn.addEventListener('click', () => {
+                try {
+                    recognition.start();
+                } catch(e) {
+                    recognition.stop();
+                }
+            });
+        } else {
+            aiMicBtn.style.display = 'none'; // Hide if browser doesn't support Voice AI
+        }
     }
 
 });
