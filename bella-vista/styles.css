@@ -51,9 +51,9 @@ body.accent-ruby    { --accent: #e11d48; --accent-light: #fb7185; --accent-glow:
 body.accent-sapphire { --accent: #2563eb; --accent-light: #93c5fd; --accent-glow: rgba(37,99,235,0.25); }
 body.accent-gold     { --accent: #ca8a04; --accent-light: #fde047; --accent-glow: rgba(202,138,4,0.25); }
 
-html { scroll-behavior: smooth; font-size: 16px; perspective: 1500px; overflow-x: hidden; }
-body { font-family: var(--font-b); background: var(--bg); color: var(--text-1); overflow-x: hidden; line-height: 1.65; cursor: none; perspective: 1500px; transform-style: preserve-3d; }
-main { transform-style: preserve-3d; transition: transform 0.15s ease-out; transform-origin: center center; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body { font-family: var(--font-b); background: var(--bg); color: var(--text-1); overflow-x: hidden; line-height: 1.65; cursor: none; }
+main { perspective: 1500px; transform-style: preserve-3d; transition: transform 0.15s ease-out; transform-origin: center center; min-height: 100vh; }
 section, .container, .hero-container, div { transform-style: preserve-3d; }
 h1, h2, h3, h4, p, span, a, button { transform-style: preserve-3d; }
 

@@ -765,6 +765,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let voiceEnabled = true;
 
     if (aiChatBtn && aiChatWindow) {
+        // Auto-open chatbot after 2 seconds to ensure visibility
+        setTimeout(() => {
+            if(!aiChatWindow.classList.contains('open')) {
+                aiChatWindow.classList.add('open');
+            }
+        }, 2000);
+
         // Toggle Voice
         aiVoiceToggle.addEventListener('click', () => {
             voiceEnabled = !voiceEnabled;
@@ -815,32 +822,46 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typing) typing.remove();
         };
 
-        const processUserQuery = (query) => {
-            const q = query.toLowerCase();
-            let response = "I'm sorry, I couldn't quite understand that. Would you like me to connect you with our maitre d'?";
-            
-            if (q.includes('dress code') || q.includes('wear')) {
-                response = "Our dress code is smart elegant. We kindly ask gentlemen to wear collared shirts and trousers. Jackets are preferred but not strictly required.";
-            } else if (q.includes('vegan') || q.includes('vegetarian')) {
-                response = "Absolutely. We offer a curated plant-based tasting menu. Our chef is also happy to modify many of our signature dishes to accommodate dietary preferences.";
-            } else if (q.includes('reservation') || q.includes('book')) {
-                response = "You can make a reservation by clicking the Reserve a Table button. We are currently fully booked for this weekend, but have availability starting Tuesday.";
-            } else if (q.includes('hours') || q.includes('open')) {
-                response = "We are open Tuesday through Sunday. Dinner service runs from 5:30 PM to 10:30 PM. We are closed on Mondays.";
-            } else if (q.includes('price') || q.includes('cost')) {
-                response = "Our signature tasting menu is 185 dollars per person. A la carte options range from 32 to 85 dollars. We also offer a premium wine pairing for 110 dollars.";
-            } else if (q.includes('hello') || q.includes('hi')) {
-                response = "Buongiorno! How can I elevate your dining experience today?";
-            } else if (q.includes('menu') || q.includes('food')) {
-                response = "Our menu focuses on modern Italian cuisine. We have a selection of antipasti, handmade pasta, and wood-fired mains.";
-            } else if (q.includes('wine')) {
-                response = "Our cellar features over 500 labels, focusing on rare Italian vintages and modern biodynamic producers. Would you like to use our AI Sommelier?";
+        const processUserQuery = async (query) => {
+            // REAL AI INTEGRATION: Google Gemini API
+            // Replace 'YOUR_GEMINI_API_KEY' with a valid API key to enable live AI responses.
+            const apiKey = 'YOUR_GEMINI_API_KEY';
+
+            if (apiKey === 'YOUR_GEMINI_API_KEY') {
+                setTimeout(() => {
+                    removeTyping();
+                    addMessage("System Note: I am currently in 'Mock Mode'. To enable real AI responses, please insert a valid Gemini API Key in script.js.", true);
+                }, 1000);
+                return;
             }
 
-            setTimeout(() => {
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `You are Bella, a sophisticated AI concierge for Bella Vista, a high-end Italian restaurant. Keep your answer under 3 sentences. Be polite, concise, and elegant. The user asks: "${query}"`
+                            }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
                 removeTyping();
-                addMessage(response, true);
-            }, 1200);
+                
+                if (data.candidates && data.candidates.length > 0) {
+                    const aiText = data.candidates[0].content.parts[0].text;
+                    addMessage(aiText, true);
+                } else {
+                    addMessage("I'm currently experiencing technical difficulties connecting to my AI brain. Please try again later.", true);
+                }
+            } catch (error) {
+                console.error("AI Error:", error);
+                removeTyping();
+                addMessage("My connection to the AI server was interrupted. Please check your network.", true);
+            }
         };
 
         const handleSend = () => {
