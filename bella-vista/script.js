@@ -86,13 +86,29 @@ document.addEventListener('DOMContentLoaded', () => {
         loop();
     }
 
-    /* ─── 5. HERO PARALLAX ──────────────────────────────── */
+    /* ─── 5. HERO 3D PARALLAX ───────────────────────────── */
     const heroParallax = document.getElementById('heroParallax');
+    const heroContent = document.querySelector('.hero-content');
+    
     if (heroParallax) {
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
             if (y < window.innerHeight * 1.5) heroParallax.style.transform = `translateY(${y * 0.3}px)`;
         }, { passive: true });
+    }
+    
+    if (heroContent) {
+        window.addEventListener('mousemove', e => {
+            if (window.scrollY > window.innerHeight) return; // Only animate when visible
+            const x = (e.clientX / window.innerWidth - 0.5) * 12; // Max 6deg rotate
+            const y = (e.clientY / window.innerHeight - 0.5) * -12;
+            heroContent.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg)`;
+        });
+        
+        // Reset on leave (in case of switching tabs/windows)
+        window.addEventListener('mouseleave', () => {
+            heroContent.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        });
     }
 
     /* ─── 6. NAVBAR + SCROLL STATE ─────────────────────── */
